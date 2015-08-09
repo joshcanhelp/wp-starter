@@ -1,0 +1,75 @@
+form
+
+	label
+		font-size: $text_size_sm
+		font-weight: bold
+		display: block
+
+	input[type=submit],
+	button
+		@extend .button
+
+	input[type=submit].button-cta,
+	button.button-cta
+		@extend .button_cta
+
+	input[type=submit].button-disabled,
+	button.button-disabled
+		@extend .button_disabled
+
+	input[type=text],
+	input[type=url],
+	input[type=email],
+	input[type=date],
+	input[type=number],
+	input[type=password],
+	input[type=tel],
+	input[type=search],
+	textarea
+		+rounded(2px)
+		border: $c_gray_light_medium 1px solid
+		display: block
+		width: 97%
+		padding:  0.5em 1.5%
+		font-family: $font_main
+		font-size: $text_size_reg
+		background: $c_white
+		line-height: 1em
+		box-shadow: none
+		-webkit-appearance: none
+
+	input[type=checkbox]
+		display: inline-block
+		vertical-align: text-bottom
+
+	select
+		+rounded(2px)
+		border: $c_gray_light_medium 1px solid
+		width: 100%
+		font-family: $font_main
+		font-size: $text_size_reg
+		line-height: 1.5em
+
+//
+// Problems
+//
+
+.request-errors,
+.proper_error_box
+	padding: 1em
+	margin: 0 0 1.5em
+	list-style-type: none
+	border-top: $c_ui_error 2px solid
+	border-bottom: $c_ui_error 2px solid
+
+	li
+		margin: 0 0 0.5em
+		line-height: 1.3em
+
+	i
+		color: $c_ui_error
+		line-height: inherit
+		font-size: 1.3em
+
+	strong
+		color: $c_ui_error

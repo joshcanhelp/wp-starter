@@ -1,0 +1,336 @@
+// Icons
+.icon_styles
+	font-family: "fontello"
+	font-style: normal
+	font-weight: normal
+
+	display: inline-block
+	text-decoration: inherit
+	width: 1em
+	text-align: center
+	font-variant: normal
+	text-transform: none
+	line-height: 1em
+	vertical-align: middle
+
+	// Font smoothing. That was taken from TWBS
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+// Clear fix
+
+.cf
+	zoom: 1
+
+	&:before,
+	&:after
+		content: ""
+		display: table
+
+	&:after
+		clear: both
+
+// Full width wrappers
+
+.outer_wrapper
+	width: 100%
+	min-width: $min_width
+
+	.inner-wrapper
+		@extend .cf
+		width: 96%
+		margin: 0 auto
+		min-width: $min_width
+		max-width: $max_width
+		position: relative
+
+// Columns
+
+.three_column
+	+responsive-col(29.667%, left)
+	padding: 1.5%
+	margin-left: 1%
+
+	&:first-child
+		margin-left: 0
+
+.two_column
+	+responsive-col(46%, left)
+	margin-left: 8%
+
+	&:first-child
+		margin-left: 0
+
+// Header styles
+
+.header_1
+	font-size: 2.8em
+	font-weight: $weight_light
+	line-height: 1.12em
+
+.header_2
+	font-size: 2.3em
+	font-weight: $weight_regular
+	line-height: 1.18em
+
+.header_3
+	font-size: 2em
+	font-weight: $weight_regular
+	line-height: 1.21em
+
+.header_4
+	font-size: 1.6em
+	font-weight: $weight_regular
+	line-height: 1.27em
+
+.header_5
+	font-size: 1.5em
+	font-weight: $weight_bold
+	line-height: 1.28em
+
+.header_6
+	font-size: 1.1em
+	font-weight: $weight_bold
+	line-height: 1.28em
+
+// hr
+
+.h_break
+	clear: both
+	border: none
+	border-bottom: 1px solid $c_gray_light
+	margin: 2em
+
+// Body copy styles used in various places
+
+.body_content_styles
+	font-size: $text_size_reg
+	overflow: auto
+
+	img
+		max-width: 100%
+		height: auto !important
+
+	p, ul, ol, h1,h2, h3, h4, h5, h6, blockquote
+
+		&:first-child
+			margin-top: 0
+
+	p,
+	li,
+	dd,
+	div
+		line-height: $line_h_reg
+
+		*
+			line-height: inherit
+
+	p.body-text-large
+		font-size: $text_size_lrg
+
+	ul,
+	ol
+		padding-left: 1.5em
+		margin: 0 0 1em
+
+		li
+			margin: 1em 0 0
+
+	ul
+		list-style-type: disc
+
+		ul
+			list-style-type: circle
+
+			ul
+				list-style-type: square
+
+	ol
+		list-style-type: decimal
+
+	a
+		color: $c_main_red
+
+	h2
+		@extend .header_2
+
+	h3
+		@extend .header_3
+
+	h4
+		@extend .header_4
+
+	h5
+		@extend .header_5
+
+	h6
+		@extend .header_6
+
+	hr
+		@extend .h_break
+
+	blockquote
+		margin: 2em 0
+		padding: 1.5em 1.5em 0
+		font-size: $text_size_lrg
+		background: $c_gray_lightest
+		border-left: 1px solid $c_gray_light_medium
+		position: relative
+
+		p
+			margin: 0
+			padding: 0 0 1.5em
+
+	figure
+		margin: 2em 0
+		max-width: 100%
+
+		&.alignleft
+			margin: 0 1.5em 1em 0
+
+		&.alignright
+			margin: 0 0 1em 1.5em
+
+		&.aligncenter
+			margin-left: auto
+			margin-right: auto
+
+	dl
+		margin: 0
+
+		dt
+			font-weight: $weight_bold
+			margin-bottom: 0.5em
+
+		dd
+			margin: 0 0 1em 0.5em
+
+	.wp-caption-text
+		font-size: $text_size_sm
+		font-style: italic
+
+// Widget link list styles
+
+.widget_link_list
+	border-top: 1px solid $c_gray_light
+
+	li
+		border-bottom: 1px solid $c_gray_light
+
+		a
+			@extend .cf
+			display: block
+			padding: 0.5em 0.2em
+			text-decoration: none
+			font-weight: $weight_semibold
+
+			&:hover
+				background: $c_gray_lightest
+
+// Card styles
+
+.card_style
+	background: $c_white
+	-moz-box-shadow: 0 1px 1px $c_gray_medium_light
+	-webkit-box-shadow: 0 1px 1px $c_gray_medium_light
+	box-shadow: 0 1px 1px $c_gray_medium_light
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=180, Color='#{$c_gray_medium_light}')"
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=180, Color='#{$c_gray_medium_light}')
+	border: 1px solid $c_white
+	text-decoration: none
+	box-sizing: border-box
+	vertical-align: middle
+	border-top-color: $c_gray_lightest
+
+	&:hover
+		border: 1px solid $c_main_blue
+
+// Standard shadows
+
+.shadow_light
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1)
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1)
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1)
+
+.shadow_medium
+	-moz-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15)
+	-webkit-box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15)
+	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15)
+
+// PDF document list
+.pdf_link
+	+icon-before('\e80e')
+	+rounded(2px)
+	padding: 0.3em 0
+	display: block
+	background: $c_gray_light_medium
+	text-decoration: none
+	text-align: center
+	font-size: $text_size_sm
+
+	&:before
+		margin-top: -0.25em
+		color: $c_gray_medium_dark
+
+	&:hover
+		background: $c_white
+		color: $c_black
+
+// Buttons
+
+.button
+	+rounded(1px)
+	+gradient(darken($c_bg_lightest, 5), darken($c_bg_lightest, 10))
+	display: inline-block
+	padding: 0.2em 0.6em 0.3em
+	text-decoration: none
+	border: none
+	line-height: 1.8em
+	font-family: $font_main
+	text-align: center
+	font-size: 1em
+	-webkit-appearance: none
+	color: $c_text
+	cursor: pointer
+
+	&:hover
+		text-decoration: none
+
+.button_cta
+	@extend .button
+	+gradient(lighten($c_main_red, 5), $c_main_red)
+	color: white
+
+.button_disabled
+	@extend .button
+	background: $c_gray_light_medium
+	cursor: default
+
+.button_view
+	@extend .button
+	+rounded(1px)
+	border: 2px solid $c_main_blue
+	text-transform: uppercase
+	color: $c_main_blue
+	font-size: $text_size_lrg
+	text-align: left
+	padding: 0.3em 0.9em
+	background: $c_gray_lightest
+
+	&:hover
+		background: $c_white
+
+	i
+		margin-top: -0.13em
+		float: right
+
+.button_add
+	+icon-after('\e80d')
+	+rounded(3px)
+	font-weight: bold
+	margin-top: 20px
+	text-decoration: none
+	display: inline-block
+	padding: 0.3em 0.4em
+	background: $c_gray_light
+	font-size: $text_size_sm

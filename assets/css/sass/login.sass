@@ -1,0 +1,48 @@
+@import partials/variables
+@import partials/mixins
+@import partials/extends
+
+body.login
+	font-family: $font_main
+	color: $c_text
+	font-weight: $weight_normal
+	background: $c_gray_lightest
+
+	#login
+		width: 100%
+		max-width: 400px
+		min-width: 320px
+
+		h1
+
+			a
+				background: url($img_logo) 50% 50% no-repeat
+				background-size: 292px
+				width: 100%
+				height: 66px
+
+	form
+		+rounded(6px)
+
+		label,
+		.forgetmenot label
+			font-size: $text_size_reg
+
+	#wp-submit
+		background: $c_main_red
+		border: $c_main_red
+
+		&:hover,
+		&:active
+			background: $c_main_red
+
+	#nav
+		color: $c_gray_lightest
+		text-align: center
+
+		a
+			@extend .button
+			padding: 0.6em 1em
+
+	#backtoblog
+		text-align: center
