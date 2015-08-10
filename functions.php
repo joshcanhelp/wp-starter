@@ -78,29 +78,36 @@ require_once( 'includes/classes/ProperSettings.php' );
 
 function proper_hook_init () {
 
+	// TODO: Change option name to match theme slug
 	$version = floatval( get_option( 'proper_start_current_version' ) );
 
-	// Older and new versions
-	if ( empty( $version ) || $version < PROPER_THEME_VERSION ) {
-		// TODO: add repair functions or include
+	// Process any upgrade scripts
+	if ( empty( $version ) || $version < FEAREY_GROUP_THEME_VERSION ) {
+		// TODO: add repair functions or includes
 	}
 
-	if ( $version != PROPER_THEME_VERSION ) {
-		update_option( 'proper_start_current_version', PROPER_THEME_VERSION );
+	if ( $version != FEAREY_GROUP_THEME_VERSION ) {
+		// TODO: Change option name
+		update_option( 'proper_start_current_version', FEAREY_GROUP_THEME_VERSION );
 	}
-
-	// Remove support for customer fields on products
-	remove_post_type_support( 'page', 'custom-fields' );
 
 	// Adding excerpts to Page content
+	// https://codex.wordpress.org/Function_Reference/add_post_type_support
 	add_post_type_support( 'page', array( 'excerpt' ) );
+
+	// Remove support for customer fields on products
+	// https://codex.wordpress.org/Function_Reference/remove_post_type_support
+	remove_post_type_support( 'page', 'custom-fields' );
 
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on PROPER Start, use a find and replace
 	 * to change 'proper-start' to the name of your theme in all the template files
+	 *
+	 * https://codex.wordpress.org/Function_Reference/load_theme_textdomain
 	 */
+	// TODO: Change text domain
 	load_theme_textdomain( 'proper-start', get_template_directory() . '/languages' );
 }
 
@@ -133,9 +140,6 @@ function proper_hook_after_setup_theme () {
 	// Enable support for Post Thumbnails
 	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
 
-	// New image sizes
-	add_image_size( 'product-thumb', '240', '140', TRUE );
-
 	// Output valid HTML5
 	add_theme_support( 'html5', array(
 		'search-form',
@@ -156,6 +160,9 @@ function proper_hook_after_setup_theme () {
 		'status',
 		'audio'
 	) );
+
+	// New image sizes
+	add_image_size( 'product-thumb', '240', '140', TRUE );
 
 	// Declare menu locations
 	register_nav_menus( array(

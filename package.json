@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "#"
+    "url": "https://github.com/joshcanhelp/wp-starter"
   },
-  "author": "Josh Cunningham (josh@joshcanhelp.com)",
+  "author": "PROPER Web Development (hi@theproperweb.com)",
   "license": "GNU v2",
   "dependencies": {
     "browserify-shim": "^3.8.7"

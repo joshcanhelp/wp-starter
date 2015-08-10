@@ -34,7 +34,7 @@
 	<div class="inner-wrapper">
 
 		<a class="site-logo" href="<?php echo home_url(); ?>" title="<?php _e( 'Home', 'proper-start' ) ?>">
-			<img src="<?php echo proper_theme_img( 'logo.png' ); ?>" alt="<?php
+			<img src="<?php echo get_header_image() ? get_header_image() : proper_theme_img( 'logo.png' ); ?>" alt="<?php
 				echo esc_attr( get_bloginfo( 'name' ) ); ?> Logo">
 		</a>
 
