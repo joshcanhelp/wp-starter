@@ -55,7 +55,7 @@ add_action( 'widgets_init', 'proper_hook_widgets_init' );
 function proper_display_widget_fields ( $fields, $instance ) {
 
 	if ( ! class_exists( 'PhpFormBuilder' ) ) {
-		require_once( get_stylesheet_directory() . '/includes/classes/PhpFormBuilder.php' );
+		require_once( '../../includes/classes/PhpFormBuilder.php' );
 	}
 
 	$widget_form = new PhpFormBuilder();

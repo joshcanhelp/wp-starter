@@ -1,3 +1,5 @@
+/* globals wp */
+
 jQuery(document).ready(function ($) {
 
 	"use strict";
@@ -37,8 +39,6 @@ jQuery(document).ready(function ($) {
 
 			// Grabs the attachment selection and creates a JSON representation of the model.
 			var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
-
-			console.log(media_attachment);
 
 			// Sends the attachment URL to our custom image input field.
 			$('#' + metaFieldId).val(media_attachment.id);

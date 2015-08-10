@@ -49,6 +49,13 @@ The commands below assume you:
 	2. Click the "+" to add a new Local scope
 	3. For "Name" use the theme slug
 	4. Find the theme folder, click to highlight, and click **Include Recursively**
-	5. Now expand this folder, click */node_modules* to highlight, and click **Exclude Recursively**
-18. [PhpStorm] Now run a Code Inspection on this project so far at **Code > Inspect Code**; make sure to select the custom scope created above
+	5. Click */node_modules* to highlight, and click **Exclude Recursively**
+	6. Select all the files (not directories) in */assets/css* and click **Exclude**
+	7. Select all the files (not directories) in */assets/js* and click **Exclude**
+	8. Click */assets/fonts* and click **Exclude Recursively**
+	9. Click */assets/js/src/libs* and click **Exclude Recursively**
+	10. Click */assets/css/sass/libs* and click **Exclude Recursively**
+	11. Click */emails* and click **Exclude Recursively**
+	12. Click */includes/classes/PhpFormBuilder.php* and click **Exclude**
+18. [PhpStorm] Now run a Code Inspection on this project so far at **Code > Inspect Code**; make sure to select the custom scope created above to only include the new files
 
