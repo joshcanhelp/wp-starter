@@ -37,11 +37,18 @@ The commands below assume you:
 	2. `grunt browserify`
 	3. `grunt inlinecss`
 15. Open *functions.php* and make the following changes:
-	1. Find the first instance of the `PROPER_THEME_VERSION` constant and Refactor > Rename in PhpStorm; for example `PROPER_THEME_VERSION` would change to `THEME_SLUG_THEME_VERSION`
+	1. Find the first instance of the `PROPER_THEME_VERSION` constant and [PhpStorm] Right Click > Refactor > Rename; for example `PROPER_THEME_VERSION` would change to `THEME_SLUG_THEME_VERSION`
 	3. Search/replace within *functions.php* to replace the others
 	4. Change `PROPER_ENV` definitions to `THEME_SLUG_ENV` in *functions.php*, then refactor throughout the theme
 	5. Remove or uncomment WP_CLI include
 	6. Review `proper_hook_init` function for things to remove or change; change the function name and `add_action` call below to match the theme slug, like `theme_slug_hook_init`
 	7. Review `proper_hook_after_setup_theme` function for things to remove or change; change the function name and `add_action` call below it to match the theme slug, like `theme_slug_hook_after_setup_theme`
 16. Refresh wp-admin and the homepage of the site to make sure there are no errors or notices
+17. [PhpStorm] Create a new local scope:
+	1. Go to **Preferences > Appearance > Scopes**
+	2. Click the "+" to add a new Local scope
+	3. For "Name" use the theme slug
+	4. Find the theme folder, click to highlight, and click **Include Recursively**
+	5. Now expand this folder, click */node_modules* to highlight, and click **Exclude Recursively**
+18. [PhpStorm] Now run a Code Inspection on this project so far at **Code > Inspect Code**; make sure to select the custom scope created above
 
