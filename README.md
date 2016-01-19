@@ -1,5 +1,7 @@
 This is a WordPress starter theme. There are other WordPress starter themes but this one is mine. 
 
+![Allons-Y slate](https://raw.githubusercontent.com/joshcanhelp/wp-starter/master/assets/img/default-img-size-medium.png)
+
 I call this "Allons-y," partly because I want you to know that I know a little bit of French and that makes me a little bit fancy but also because I find myself mumbling "let's go ..." when I'm doing something repetitive and want to get it done quickly (like, say, cobbling together the disparate pieces of a starter theme). "Let's go" in French is, you guessed it, "Allons-Y."
 
 The instructions below walk you through how to adjust this theme to fit your project and remove parts that may not be helpful. They were written for my projects so, in some cases (like changes to style.css), you'll be making a less/more/different changes. I believe that how I develop is the most efficient, precise, and effective way so if your way is different, you should probably change it to be more like my way. Fact. 
