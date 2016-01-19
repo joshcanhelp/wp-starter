@@ -91,7 +91,7 @@ Whichever way you chose, go make a cup of oolong tea or order a new shirt or som
 
 With your theme, tea, and shirt ready to go, you're now free to build excellent web with WordPress.
 
-Each file has a block at the top to explain what's located in each file and how to use it. I'm not going to be there to watch over your shoulder so I trust you'll do the right thing. Here are a few general guidelines:
+Each file has a block at the top to explain what's located in each file and how to use it. I'm not going to be there to watch over your shoulder so I trust you'll do the right thing.
 
 I have a number of things that I'm planning on adding here, including:
 
