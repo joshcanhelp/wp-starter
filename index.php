@@ -1,43 +1,36 @@
 <?php get_header(); ?>
 
-	<section id="main-content" class="main-content post-listing">
-		<div class="inner-wrapper">
+<?php
+if ( have_posts() ) :
+	while ( have_posts() ) :
+		the_post();
+		?>
 
-			<div class="col-with-sidebar">
+		<div id="post-id-<?php  the_ID(); ?>" <?php post_class( 'u-clear' ); ?>>
 
-				<h1 class="main-title"><?php proper_archive_title(); ?></h1>
+			<img src="<?php echo allonsy_get_post_img_url() ?>" class="alignleft">
 
-				<?php if ( have_posts() ) : ?>
+			<?php if ( is_singular() ) : ?>
+			<h1><?php the_title(); ?></h1>
+			<?php else : ?>
+			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+			<?php endif; ?>
 
-					<?php while ( have_posts() ) :
-						the_post(); ?>
-						<section id="post-<?php the_ID(); ?>" <?php post_class( 'post-listing-wrap' ); ?>>
+			<div class="has-wysiwyg">
 
-							<h2><a href="<?php echo get_permalink() ?>"><?php the_title() ?></a></h2>
-
-							<div class="the-content cf">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_post_thumbnail( 'thumbnail' ); ?>
-								</a>
-								<?php the_excerpt(); ?>
-								<p><a class="read-more" href="<?php
-									the_permalink(); ?>">Read More <i class="icon-angle-double-right"></i></a></p>
-							</div>
-
-						</section>
-					<?php endwhile; ?>
-
-					<?php proper_pagination(); ?>
+				<?php if ( is_singular() ) : ?>
+					<?php the_content(); ?>
 				<?php else : ?>
-					<?php get_template_part( 'partials/block', 'nothing-found' ); ?>
+					<?php the_excerpt(); ?>
 				<?php endif; ?>
 
 			</div>
-
-
-			<?php get_sidebar( 'blog' ) ?>
-
 		</div>
-	</section>
+
+	<?php
+	endwhile;
+endif;
+?>
+
 
 <?php get_footer(); ?>

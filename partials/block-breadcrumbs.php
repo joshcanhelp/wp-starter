@@ -3,12 +3,12 @@
 
 		<?php get_search_form(); ?>
 
-		<ol id="breadcrumbs" class="breadcrumbs" itemscope>
+		<ol id="breadcrumbs" class="breadcrumbs u-list-inline" itemscope>
 
 		<?php
 		// Breadcrumb link printf template
 		$link_html = '<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="%s" itemprop="url">
-			<span itemprop="title">%s</span></a></li> <i class="icon-angle-right"></i> ';
+			<span itemprop="title">%s</span></a></li> <li class="separator">&rsaquo;</li> ';
 
 		$title_html = '<li><span itemprop="title"><strong>%s</strong></span></li>';
 
@@ -35,17 +35,6 @@
 			// Single page title
 			printf( $title_html, get_the_title() );
 
-		} else if ( is_singular( 'pcc-product' ) ) {
-
-			// Link to main products page
-			printf( $link_html, home_url( 'products' ), 'Products' );
-
-			// Product category, if there is one
-			pcc_prod_single_cat( $link_html );
-
-			// Product title
-			printf( $title_html, get_the_title() );
-
 		} else if ( is_single() ) {
 
 			// Link to blog, if there is one
@@ -60,32 +49,6 @@
 
 			// Post title
 			printf( $title_html, get_the_title() );
-
-		} else if ( is_tax( 'pcc-product-cat' ) ) {
-
-			// Link to main products page
-			printf( $link_html, home_url( 'products' ), 'Products' );
-
-			// Current term data
-			$term = get_queried_object();
-
-			// Show term parent if there is one
-			if ( ! empty( $term->parent ) ) {
-				$term_parent = get_term_by( 'id', $term->parent, $term->taxonomy );
-
-				printf( $link_html, get_term_link( $term_parent->term_id, $term_parent->taxonomy ), $term_parent->name );
-			}
-
-			// Term name
-			printf( $title_html, $term->name );
-
-		} else if ( is_tax( 'pcc-product-man' ) ) {
-
-			// Link to main products page
-			printf( $link_html, home_url( 'products' ), 'Products' );
-
-			// Term name
-			printf( $title_html, get_queried_object()->name );
 
 		} else if ( is_category() || is_tag() ) {
 

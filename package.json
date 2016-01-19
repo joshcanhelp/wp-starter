@@ -1,7 +1,7 @@
 {
-  "name": "proper-starter-theme",
+  "name": "wp-starter-allonsy",
   "version": "0.0.1",
-  "description": "A WordPress starter theme",
+  "description": "A WordPress starter theme called Allons-Y",
   "main": "style.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

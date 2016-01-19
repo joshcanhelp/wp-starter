@@ -1,35 +1,47 @@
 <?php
 
 /**
- * Queuing up JS and CSS in wp-admin
+ * All admin style and script enqueing
+ *
+ * @package    WordPress
+ * @subpackage AllonsYFramework
  */
-function proper_hook_admin_enqueue_scripts () {
 
-	global $pagenow;
+/**
+ * Queuing up JS and CSS for wp-admin. Notes:
+ *
+ * - Use get_template_directory_uri() to pull from the parent theme, child themes use get_stylesheet_directory_uri()
+ * - Use get_current_screen() to get the current admin screen (usually the .php file you're on)
+ *
+ * @see https://codex.wordpress.org/Function_Reference/wp_enqueue_style
+ * @see https://codex.wordpress.org/Function_Reference/wp_enqueue_script
+ *
+ */
+function allonsy_admin_enqueue_scripts() {
 
 	/*
-	 * CSS
+	 * Main stylesheet file for all admin pages, should be final, pre-processed file
 	 */
 
 	wp_enqueue_style(
-		'proper-admin',
+		'allonsy-admin',
 		get_template_directory_uri() . '/assets/css/admin.css',
 		FALSE,
-		PROPER_THEME_VERSION
+		ALLONSY_THEME_VERSION
 	);
 
 	/*
-	 * JS
+	 * Main JavaScript file for all admin pages, should be final, pre-processed file
 	 */
 
 	wp_enqueue_script(
-		'proper-admin',
-		get_template_directory_uri() . '/assets/js/admin.js',
-		array( 'jquery' ),
-		PROPER_THEME_VERSION,
-		TRUE
+		'allonsy-admin',
+		get_template_directory_uri() . '/assets/js/admin-main.js',
+		FALSE,
+		ALLONSY_THEME_VERSION
 	);
+
 
 }
 
-add_action( 'admin_enqueue_scripts', 'proper_hook_admin_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'allonsy_admin_enqueue_scripts' );

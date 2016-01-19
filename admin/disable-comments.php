@@ -6,13 +6,16 @@
  * Need to also turn off comments for posts individually (Bulk Edit or DB find/replace)
  *
  * Adapted from: https://www.dfactory.eu/wordpress-how-to/turn-off-disable-comments/
+ *
+ * @package    WordPress
+ * @subpackage AllonsYFramework
  */
 
 /**
  * Remove post type support for comments for all post types
  */
 
-function proper_disable_comment_support () {
+function allonsy_disable_comment_support () {
 	foreach ( get_post_types() as $type ) {
 		if ( post_type_supports( $type, 'comments' ) ) {
 			remove_post_type_support( $type, 'comments' );
@@ -21,7 +24,7 @@ function proper_disable_comment_support () {
 	}
 }
 
-add_action( 'admin_init', 'proper_disable_comment_support', 1000 );
+add_action( 'admin_init', 'allonsy_disable_comment_support', 1000 );
 
 /**
  * Always show comments status as closed
@@ -37,16 +40,16 @@ add_filter( 'pings_open', '__return_false', 1000, 2 );
 add_filter( 'comments_array', '__return_empty_array', 1000, 2 );
 
 // Remove comments page in menu
-function df_disable_comments_admin_menu () {
+function allonsy_disable_comments_admin_menu () {
 	remove_menu_page( 'edit-comments.php' );
 }
 
-add_action( 'admin_menu', 'df_disable_comments_admin_menu' );
+add_action( 'admin_menu', 'allonsy_disable_comments_admin_menu' );
 
 /**
  * Redirect the comments page in wp-admin
  */
-function proper_redirect_comments_page () {
+function allonsy_redirect_comments_page () {
 	global $pagenow;
 	if ( 'edit-comments.php' === $pagenow ) {
 		wp_redirect( admin_url() );
@@ -54,26 +57,26 @@ function proper_redirect_comments_page () {
 	}
 }
 
-add_action( 'admin_init', 'proper_redirect_comments_page' );
+add_action( 'admin_init', 'allonsy_redirect_comments_page' );
 
 /**
  * Remove comments meta box from wp-admin
  */
 
-function proper_remove_comments_meta () {
+function allonsy_remove_comments_meta () {
 	remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
 }
 
-add_action( 'admin_init', 'proper_remove_comments_meta' );
+add_action( 'admin_init', 'allonsy_remove_comments_meta' );
 
 /**
  * Remove the comments link from the admin bar
  */
 
-function proper_remove_comments_admin_link () {
+function allonsy_remove_comments_admin_link () {
 	if ( is_admin_bar_showing() ) {
 		remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
 	}
 }
 
-add_action( 'init', 'proper_remove_comments_admin_link' );
+add_action( 'init', 'allonsy_remove_comments_admin_link' );

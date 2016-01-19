@@ -1,5 +1,5 @@
 <?php
-$sub_items = proper_get_attached_docs();
+$sub_items = allonsy_get_attached_docs();
 if ( !empty( $sub_items ) ) :
 ?>
 

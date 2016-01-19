@@ -19,26 +19,47 @@
 </head>
 <body <?php body_class() ?>>
 
-<a class="skip-link screen-reader-text" href="#main-content">
-	<?php _e( 'Skip to content', 'proper-start' ); ?>
-</a>
+	<p>
+		<?php echo get_header_image() ?>
+		<a class="site-logo" href="<?php echo home_url(); ?>" title="<?php _e( 'Home', 'allons-y' ) ?>">
+			<img alt="<?php
+				echo esc_attr( get_bloginfo( 'name' ) ); ?> logo" src="<?php
 
-<header id="site-top" class="site-top-header">
-	<div class="inner-wrapper">
+				if ( get_header_image() ) {
+					echo esc_url( get_header_image() );
+				} else {
+					echo esc_url( allonsy_theme_img( 'default-img-logo.png' ) );
+				}
 
-
-	</div>
-</header>
-
-<header id="site-header" class="site-main-header">
-	<div class="inner-wrapper">
-
-		<a class="site-logo" href="<?php echo home_url(); ?>" title="<?php _e( 'Home', 'proper-start' ) ?>">
-			<img src="<?php echo get_header_image() ? get_header_image() : proper_theme_img( 'logo.png' ); ?>" alt="<?php
-				echo esc_attr( get_bloginfo( 'name' ) ); ?> Logo">
+				?>">
 		</a>
+	</p>
 
-	</div>
-</header>
+	<p>
+		<a href="#" id="js-allonsy-get-latest-post" data-nonce="<?php
+			echo sanitize_text_field( wp_create_nonce( 'allonsy-get-latest-post' ) ) ?>"><?php
+			_e( 'Get latest post!', 'allons-y' ); ?></a>
+	</p>
 
-<?php get_template_part( 'partials/block', 'breadcrumbs' ); ?>
+	<?php if ( get_option( 'site_twitter_name' ) ) : ?>
+
+		<p>
+			<a href="https://twitter.com/<?php
+				echo allonsy_sanitize_twitter( get_option( 'site_twitter_name' ) ) ?>"><?php
+				_e( 'Follow us!', 'allons-y' ); ?></a>
+		</p>
+
+	<?php endif; ?>
+
+	<?php if ( get_option( 'site_facebook_url' ) ) : ?>
+
+		<p>
+			<a href="<?php
+				echo esc_url( get_option( 'site_facebook_url' ) ) ?>"><?php
+				_e( 'Like us!', 'allons-y' ); ?></a>
+		</p>
+
+	<?php endif; ?>
+
+	<?php get_template_part( 'partials/block', 'breadcrumbs' ); ?>
+

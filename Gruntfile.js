@@ -21,9 +21,9 @@ module.exports = function (grunt) {
 				files: {
 					'assets/css/main.css' : 'assets/css/sass/main.sass',
 					'assets/css/admin.css': 'assets/css/sass/admin.sass',
-					'assets/css/login.css': 'assets/css/sass/login.sass',
-					'assets/css/editor-styles.css': 'assets/css/sass/editor-styles.sass',
-					'emails/email.css': 'emails/email.sass'
+					'assets/css/login.css': 'assets/css/sass/login.sass'
+					//'assets/css/editor-styles.css': 'assets/css/scss/editor-styles.sass',
+					//'emails/email.css': 'emails/email.sass'
 				}
 			}
 		},
@@ -36,15 +36,15 @@ module.exports = function (grunt) {
 			dist: {
 				files: {
 					'assets/js/main.js': 'assets/js/src/main.js',
-					'assets/js/admin.js': 'assets/js/src/admin.js'
+					'assets/js/admin-main.js': 'assets/js/src/admin-main.js'
 				},
 				options: {
 					// TODO: Turn this on before launch
 					//transform: ['uglifyify'],
-					alias: {
-						'pikaday': './assets/js/src/libs/pikaday.js',
-						'remodal': './assets/js/src/libs/remodal.js'
-					},
+					//alias: {
+					//	'pikaday': './assets/js/src/libs/pikaday.js',
+					//	'remodal': './assets/js/src/libs/remodal.js'
+					//},
 					ignore: ['moment']
 				}
 			}

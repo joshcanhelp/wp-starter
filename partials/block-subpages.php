@@ -10,24 +10,21 @@ $sub_items = get_children( array(
 if ( ! empty( $sub_items ) ) :
 	?>
 
-	<div class="document-listing">
+	<div class="subpage-listing">
 
 		<?php
 		$count = 1;
 		foreach ( $sub_items as $doc ) :
 			?>
-			<div class="single-document">
-				<div class="doc-icon-col">
-					<a href="<?php echo get_permalink( $doc->ID ) ?>" target="_blank">
-						<i class="icon-doc-text doc-icon"></i>
-					</a>
-				</div>
-				<div class="doc-content-col">
-					<h2><a href="<?php echo get_permalink( $doc->ID ) ?>"><?php
+			<div class="single-subpage">
+				<h2><a href="<?php echo get_permalink( $doc->ID ) ?>"><?php
 						echo apply_filters( 'the_title', $doc->post_title ) ?></a></h2>
 
-					<p><?php echo proper_meta( 'pcc_page_meta_desc', $doc->ID ) ?></p>
-				</div>
+				<p><?php
+					echo apply_filters(
+						'the_excerpt',
+						$doc->post_content
+					) ?></p>
 			</div>
 			<?php
 			echo $count % 2 ? '' : '<br>';

@@ -7,7 +7,7 @@
  *
  * @return string
  */
-function pcc_hook_mce_css ( $mce_css ) {
+function allonsy_hook_mce_css ( $mce_css ) {
 	if ( ! empty( $mce_css ) ) {
 		$mce_css .= ',';
 	}
@@ -17,7 +17,7 @@ function pcc_hook_mce_css ( $mce_css ) {
 	return $mce_css;
 }
 
-add_action( 'mce_css', 'pcc_hook_mce_css' );
+add_action( 'mce_css', 'allonsy_hook_mce_css' );
 
 
 /**
@@ -27,7 +27,7 @@ add_action( 'mce_css', 'pcc_hook_mce_css' );
  *
  * @return mixed
  */
-function pcc_hook_mce_buttons_2 ( $buttons ) {
+function allonsy_hook_mce_buttons_2 ( $buttons ) {
 
 	if ( in_array( 'formatselect', $buttons ) ) {
 		unset( $buttons[ array_search( 'formatselect', $buttons )] );
@@ -37,11 +37,11 @@ function pcc_hook_mce_buttons_2 ( $buttons ) {
 	return $buttons;
 }
 
-add_filter( 'mce_buttons_2', 'pcc_hook_mce_buttons_2' );
+add_filter( 'mce_buttons_2', 'allonsy_hook_mce_buttons_2' );
 
 
 
-function pcc_hook_tiny_mce_before_init ( $settings ) {
+function allonsy_hook_tiny_mce_before_init ( $settings ) {
 
 	// Add formats
 	// From http://tinymce.moxiecode.com/examples/example_24.php
@@ -89,15 +89,4 @@ function pcc_hook_tiny_mce_before_init ( $settings ) {
 	return $settings;
 }
 
-add_filter( 'tiny_mce_before_init', 'pcc_hook_tiny_mce_before_init' );
-
-/**
- * Set the visual editor as default
- *
- * @return string
- */
-function pcc_filter_default_editor () {
-	return 'tinymce';
-}
-
-add_filter( 'wp_default_editor', 'pcc_filter_default_editor', 9999 );
+add_filter( 'tiny_mce_before_init', 'allonsy_hook_tiny_mce_before_init' );
