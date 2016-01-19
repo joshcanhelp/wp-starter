@@ -6,7 +6,6 @@ I call this "Allons-y," partly because I want you to know that I know a little b
 
 The instructions below walk you through how to adjust this theme to fit your project and remove parts that may not be helpful. They were written for my projects so, in some cases (like changes to style.css), you'll be making a less/more/different changes. I believe that how I develop is the most efficient, precise, and effective way so if your way is different, you should probably change it to be more like my way. Fact. 
 
----
 ## Let's Go
 
 The commands below assume you: 
@@ -86,9 +85,6 @@ If you're just building out a theme for a site, be it client, family, friend, pe
 
 Whichever way you chose, go make a cup of oolong tea or order a new shirt or something because you're now fancy, like me.
 
----
-
-
 ## Now What?
 
 With your theme, tea, and shirt ready to go, you're now free to build excellent web with WordPress.
@@ -104,6 +100,11 @@ I have a number of things that I'm planning on adding here, including:
 - Add options for custom admin HTML emails
 - Fix all of your issues, requests, and customizations forever
 
+## Merci
+
+Well, WordPress of course. I think about what I do and the life I built for myself and my family and it might have been totally different without the loving contributions by the WP core team over the last 8+ years. To be fair, it might have been _better_ but it's good now and that's probably enough. **Merci beaucoup!**
+
+Also, a big thanks to [SeaMonster Studios](http://www.seamonsterstudios.com/) who hired me to create a theme framework for them. All the documentation and a number of the included files were from that project and they were kind enough to let me release it as open source. **Merci beaucoup!**
 
 
 
