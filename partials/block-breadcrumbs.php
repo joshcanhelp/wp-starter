@@ -1,5 +1,5 @@
-<section class="breadcrumb-wrapper">
-	<div class="inner-wrapper">
+<section class="site-breadcrumbs">
+	<div class="inner">
 
 		<?php get_search_form(); ?>
 

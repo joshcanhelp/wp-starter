@@ -1,0 +1,74 @@
+//
+// General core and custom page templates
+//
+
+.single-page
+	@extend %outer_wrap
+
+	.page
+		+span-columns(12)
+
+		+media($b_medium)
+			+span-columns(8)
+
+	.sidebar
+		+span-columns(12)
+
+		+media($b_medium)
+			+span-columns(4)
+
+//
+// Custom template CSS
+//
+
+// Styling test
+
+.allons-test-color-grid
+	@extend %outer_wrap
+	color: $c_white
+
+	.inner
+		padding: 2em 0
+
+	.color-col
+		+span-columns(1)
+
+		&.darker
+			background: $c_g_darker
+
+		&.dark
+			background: $c_g_dark
+
+		&.med-darkest
+			background: $c_g_med_darkest
+
+		&.med-darker
+			background: $c_g_med_darker
+
+		&.med-dark
+			background: $c_g_med_dark
+
+		&.med
+			background: $c_g_med
+
+		&.med-light
+			background: $c_g_med_light
+
+		&.med-lighter
+			background: $c_g_med_lighter
+
+		&.med-lightest
+			background: $c_g_med_lightest
+			color: $c_g_darkest
+
+		&.light
+			background: $c_g_light
+			color: $c_g_darkest
+
+		&.lighter
+			background: $c_g_lighter
+			color: $c_g_darkest
+
+		&.lightest
+			background: $c_g_lightest
+			color: $c_g_darkest

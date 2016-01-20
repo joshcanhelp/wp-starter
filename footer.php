@@ -1,3 +1,5 @@
+	</div>
+	<!-- end #content -->
 
 	<?php wp_footer(); ?>
 

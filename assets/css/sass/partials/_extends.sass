@@ -1,3 +1,9 @@
+// Imports
+
+@import variables
+
+// Global, general
+
 %cf
 	zoom: 1
 
@@ -13,3 +19,13 @@
 %no_space
 	padding: 0
 	margin: 0
+
+%outer_wrap
+	@extend %no_space
+	min-width: $l_min_width
+	width: 100%
+
+	.inner
+		@extend %cf
+		+outer-container(1100px)
+		padding: 0 2%

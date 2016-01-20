@@ -6,7 +6,7 @@ if ( have_posts() ) :
 		the_post();
 		?>
 
-		<div id="post-id-<?php  the_ID(); ?>" <?php post_class( 'u-clear' ); ?>>
+		<article id="post-id-<?php  the_ID(); ?>" <?php post_class( 'u-clear' ); ?>>
 
 			<img src="<?php echo allonsy_get_post_img_url() ?>" class="alignleft">
 
@@ -25,7 +25,7 @@ if ( have_posts() ) :
 				<?php endif; ?>
 
 			</div>
-		</div>
+		</article>
 
 	<?php
 	endwhile;

@@ -19,10 +19,12 @@
 </head>
 <body <?php body_class() ?>>
 
-	<p>
-		<?php echo get_header_image() ?>
-		<a class="site-logo" href="<?php echo home_url(); ?>" title="<?php _e( 'Home', 'allons-y' ) ?>">
-			<img alt="<?php
+<header id="top" class="site-header">
+	<div class="inner">
+		<p>
+			<?php echo get_header_image() ?>
+			<a class="site-logo" href="<?php echo home_url(); ?>" title="<?php _e( 'Home', 'allons-y' ) ?>">
+				<img alt="<?php
 				echo esc_attr( get_bloginfo( 'name' ) ); ?> logo" src="<?php
 
 				if ( get_header_image() ) {
@@ -32,34 +34,37 @@
 				}
 
 				?>">
-		</a>
-	</p>
+			</a>
+		</p>
 
-	<p>
-		<a href="#" id="js-allonsy-get-latest-post" data-nonce="<?php
+		<p>
+			<a href="#" id="js-allonsy-get-latest-post" data-nonce="<?php
 			echo sanitize_text_field( wp_create_nonce( 'allonsy-get-latest-post' ) ) ?>"><?php
-			_e( 'Get latest post!', 'allons-y' ); ?></a>
-	</p>
+				_e( 'Get latest post!', 'allons-y' ); ?></a>
+		</p>
 
-	<?php if ( get_option( 'site_twitter_name' ) ) : ?>
+		<?php if ( get_option( 'site_twitter_name' ) ) : ?>
 
-		<p>
-			<a href="https://twitter.com/<?php
+			<p>
+				<a href="https://twitter.com/<?php
 				echo allonsy_sanitize_twitter( get_option( 'site_twitter_name' ) ) ?>"><?php
-				_e( 'Follow us!', 'allons-y' ); ?></a>
-		</p>
+					_e( 'Follow us!', 'allons-y' ); ?></a>
+			</p>
 
-	<?php endif; ?>
+		<?php endif; ?>
 
-	<?php if ( get_option( 'site_facebook_url' ) ) : ?>
+		<?php if ( get_option( 'site_facebook_url' ) ) : ?>
 
-		<p>
-			<a href="<?php
+			<p>
+				<a href="<?php
 				echo esc_url( get_option( 'site_facebook_url' ) ) ?>"><?php
-				_e( 'Like us!', 'allons-y' ); ?></a>
-		</p>
+					_e( 'Like us!', 'allons-y' ); ?></a>
+			</p>
 
-	<?php endif; ?>
+		<?php endif; ?>
+	</div>
+</header>
 
-	<?php get_template_part( 'partials/block', 'breadcrumbs' ); ?>
+<?php get_template_part( 'partials/block', 'breadcrumbs' ); ?>
 
+<div id="content">
