@@ -61,7 +61,7 @@ function allonsy_gettext_login( $translated_text, $text, $domain ) {
 	}
 
 	if ( 'Username' == $translated_text ) {
-		$translated_text = __( 'Email or Username', 'allonsy' );
+		$translated_text = __( 'Email or Username', 'allons-y' );
 	}
 
 	return $translated_text;

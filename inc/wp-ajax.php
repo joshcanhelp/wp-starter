@@ -32,7 +32,7 @@ function allonsy_ajax_get_latest_post() {
 
 	// Checks that the request came from the current site and has the correct nonce
 
-	check_ajax_referer( 'allonsy-get-latest-post', 'nonce' );
+	check_ajax_referer( 'allonsy_get_latest_post', 'nonce' );
 
 	// All data will come via the global $_POST object with the same keys as were set in JS
 	// These variables should not be trusted, must be sanitized

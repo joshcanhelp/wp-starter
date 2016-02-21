@@ -4,7 +4,18 @@
  * Class AllonsyLogIt
  *
  * This class makes logging super-easy with automatic formatting, easy storage, and formatted output.
- * Use it if you need to, otherwise it will be here waiting for when you do.
+ * Use it if you need to, otherwise it will be here waiting for when you do. I use it for things like:
+ *
+ * - Complex save_post hook processing that needs debugging
+ * - Post-purchase processing on ecommerce sites
+ * - Offline processing like wp-cron actions and the like
+ *
+ * How to use this:
+ *
+ * - Declare a new instance at the start of your processing with `new AllonsyLogIt()`
+ * - For each action you want to record, add log text with `log()`
+ * - When you're done with that process, call `store()`
+ * - To output in the admin somewhere (meta box?), use `output()`
  */
 
 class AllonsyLogIt {
@@ -49,7 +60,7 @@ class AllonsyLogIt {
 	 * @param string $val
 	 */
 
-	public function store ( $type = 'post', $id = 0, $val = '_mp_logging' ) {
+	public function store ( $type = 'post', $id = 0, $val = '_allonsy_logging' ) {
 
 		if ( $type === 'post' && $id ) {
 			update_post_meta( $id, $val, $this->log_text );

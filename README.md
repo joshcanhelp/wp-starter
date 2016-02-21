@@ -6,6 +6,33 @@ I call this "Allons-y," partly because I want you to know that I know a little b
 
 The instructions below walk you through how to adjust this theme to fit your project and remove parts that may not be helpful. They were written for my projects so, in some cases (like changes to style.css), you'll be making a less/more/different changes. I believe that how I develop is the most efficient, precise, and effective way so if your way is different, you should probably change it to be more like my way. Fact. 
 
+## Philosophy
+
+"A philosophy for a WP starter theme, eh?" I hear you asking. "How bold." Indeed. 
+
+I've tried a number of popular (and not-so-popular) starter themes out there and always found myself ripping out parts, learning conventions I don't like, and adding a layer of confusion onto something I've been doing for a long time. This is my fourth iteration of a starter theme now, the other 3 containing enough cruft that just starting over made the most sense many times (which is not a bad a approach at all). 
+
+But still, there was all this boilerplate stuff I kept needing over and over, things like:
+
+* enqueing and localizing stylesheets and scripts, along with modifications like IE-specific modifications
+* delaring theme support for common things like thumbnails, title tags, etc. 
+* widget and sidebar templates and declarations
+
+... and the list goes on and on. I've done all of these many, many times before so it was never hard to find an example in a theme I have locally but, ugh. It's hard to tell what the latest version is, maybe I had something cool in a different theme (which one again?), and hunting through the same Codex articles over and over was tedious, at best. 
+
+I wanted a single starting point that:
+
+1. Would give me all the fun features I like to add like logging in with email, WYSIWYG styles, common output functions like share buttons, nice-to-haves like redirecting a single search result to that result ... all the things that **I** think should be a part of almost every theme that I create. 
+2. Would not enforce a styling paradigm that I only use half the time (hence Bourbon, Neat, and Bitters) and doesn't force me to walk through every single template file when I change my mind about how the classes or IDs should look. 
+3. Would give me a place to start for common things like AJAX, Theme Customizer options, and login page styling. 
+4. Only uses core WordPress API stuff and not introduce a bunch of stuff that needs to be learned or remembered about this theme in particular. Use what's here or don't but you'll have plenty of important defaults out of the box. 
+
+So that's what this is for. 
+
+On that note ... while I tried to keep most of this as un-opinionated as possible (for my own benefit and anyone else who uses it), there are, of course, things that can be improved/refined/fixed so I absolutely welcome issues, PRs, and questions about this. I've used this theme to teach several developers about The WordPress Way so far and I hope that this pattern continues. When I teach, I learn and learning is key. 
+
+Enough blathering, 
+
 ## Let's Go
 
 The commands below assume you: 
@@ -66,11 +93,18 @@ Use this if you don't want any of my namespacing or are going to make significan
 	6. Select all the files (not directories) in */assets/css* and click **Exclude**
 	7. Select all the files (not directories) in */assets/js* and click **Exclude**
 	8. Click */assets/fonts* and click **Exclude Recursively**
-	9. Click */assets/js/src/libs* and click **Exclude Recursively**
-	10. Click */assets/css/sass/libs* and click **Exclude Recursively**
+	9. Click */assets/js/vendor* and click **Exclude Recursively**
+	10. Click */assets/css/sass/vendor* and click **Exclude Recursively**
 	11. Click */emails* and click **Exclude Recursively**
 	12. Click */includes/classes/PhpFormBuilder.php* and click **Exclude**
-18. [PhpStorm] Now run a Code Inspection on this project so far at **Code > Inspect Code**; make sure to select the custom scope created above to only include the new files
+18. If you want to namespace the theme to get rid of the Allons-Y brand (haha), here are a few tips using PhpStorm
+	1. Go to **Edit > Find > Replace in path**, then under the Scope heading, select Custom and pick the local scope created above for all actions; use case sensitive searching
+	2. Replace `allonsy_` with a PHP function name-friendly version of your theme slug (lowercase letters, numbers, and underscores starting with a letter) to handle functions, varibles, and string literals
+	3. Replace `allons-y` with your text domain, chosen above
+	4. Replace `allonsy-` with your theme slug followed by a `-` for HTML attributes, CSS classes, and a few other things
+	5. Rename the file and class at /inc/classes/class-allonsy-log-it.php
+	6. Fianlly, search for `allons` not-case-sensitive to find all the rest
+19. [PhpStorm] Now run a Code Inspection on this project so far at **Code > Inspect Code**; make sure to select the custom scope created above to only include the new files
 
 ### Option 2: The Easy Way - Child Theme
 

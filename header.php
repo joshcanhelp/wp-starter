@@ -39,7 +39,7 @@
 
 		<p>
 			<a href="#" id="js-allonsy-get-latest-post" data-nonce="<?php
-			echo sanitize_text_field( wp_create_nonce( 'allonsy-get-latest-post' ) ) ?>"><?php
+			echo sanitize_text_field( wp_create_nonce( 'allonsy_get_latest_post' ) ) ?>"><?php
 				_e( 'Get latest post!', 'allons-y' ); ?></a>
 		</p>
 

@@ -35,7 +35,7 @@
 		</div>
 	</section>
 
-	<section class="allons-test-color-grid">
+	<section class="allonsy-test-color-grid">
 		<div class="inner">
 
 			<div class="color-col darker">

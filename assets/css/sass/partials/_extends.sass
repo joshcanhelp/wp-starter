@@ -29,3 +29,18 @@
 		@extend %cf
 		+outer-container(1100px)
 		padding: 0 2%
+
+%col_wrap
+	+outer-container(100%)
+
+	.col-2
+		+span-columns(6)
+
+	.col-3
+		+span-columns(4)
+
+	.col-4
+		+span-columns(3)
+
+	.col-6
+		+span-columns(2)

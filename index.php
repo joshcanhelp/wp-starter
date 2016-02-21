@@ -11,11 +11,10 @@
 
 					<article id="post-id-<?php the_ID(); ?>" <?php post_class( 'u-clear' ); ?>>
 
-						<img src="<?php echo allonsy_get_post_img_url() ?>" class="alignleft">
-
 						<?php if ( is_singular() ) : ?>
 							<h1><?php the_title(); ?></h1>
 						<?php else : ?>
+							<img src="<?php echo allonsy_get_post_img_url() ?>" class="alignleft">
 							<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<?php endif; ?>
 
@@ -34,7 +33,7 @@
 				endwhile;
 			endif;
 			?>
-			
+
 		</div>
 	</section>
 

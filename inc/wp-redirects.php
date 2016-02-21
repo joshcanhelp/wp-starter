@@ -25,7 +25,7 @@ function allonsy_hook_force_front_end() {
 	}
 }
 
-add_action( 'admin_init', 'allonsy_hook_force_front_end' );
+// add_action( 'admin_init', 'allonsy_hook_force_front_end' );
 
 /**
  * If a search only pulls up one page, redirect there
