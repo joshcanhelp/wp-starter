@@ -10,7 +10,7 @@
 /**
  * Queuing up JS and CSS for the front-end. Notes:
  *
- * - Use get_template_directory_uri() to pull from the parent theme, child themes use get_stylesheet_directory_uri()
+ * - Use get_stylesheet_directory_uri() to pull from the parent theme, child themes use get_stylesheet_directory_uri()
  * - Use conditionals to restrict extra JS and CSS to specific templates and pages
  *
  * @see https://codex.wordpress.org/Function_Reference/wp_enqueue_style
@@ -27,7 +27,7 @@ function allonsy_wp_enqueue_scripts() {
 
 	wp_enqueue_style(
 		'allonsy-main',
-		get_template_directory_uri() . '/assets/css/main.css',
+		get_stylesheet_directory_uri() . '/assets/css/main.css',
 		FALSE,
 		ALLONSY_THEME_VERSION
 	);
@@ -58,7 +58,7 @@ function allonsy_wp_enqueue_scripts() {
 
 	wp_enqueue_script(
 		'allonsy-main',
-		get_template_directory_uri() . '/assets/js/main.js',
+		get_stylesheet_directory_uri() . '/assets/js/main.js',
 		array( 'jquery' ),
 		ALLONSY_THEME_VERSION,
 		TRUE
@@ -104,7 +104,7 @@ function allonsy_login_enqueue_scripts() {
 
 	wp_enqueue_style(
 		'allonsy-login',
-		get_template_directory_uri() . '/assets/css/login.css',
+		get_stylesheet_directory_uri() . '/assets/css/login.css',
 		FALSE,
 		ALLONSY_THEME_VERSION
 	);
@@ -114,13 +114,13 @@ function allonsy_login_enqueue_scripts() {
 add_action( 'login_enqueue_scripts', 'allonsy_login_enqueue_scripts', 100 );
 
 /**
- * Enqueue a controller script for Them Customizer mods
+ * Enqueue a controller script for Theme Customizer mods
  */
 function allonsy_hook_custom_css_preview() {
 
 	wp_enqueue_script(
 		'allonsy-theme-mods',
-		get_template_directory_uri() . '/assets/js/theme-customizer.js',
+		get_stylesheet_directory_uri() . '/assets/js/theme-customizer.js',
 		array( 'customize-preview', 'jquery' )
 	);
 }
