@@ -22,7 +22,6 @@
 <header id="top" class="site-header">
 	<div class="inner">
 		<p>
-			<?php echo get_header_image() ?>
 			<a class="site-logo" href="<?php echo home_url(); ?>" title="<?php _e( 'Home', 'allons-y' ) ?>">
 				<img alt="<?php
 				echo esc_attr( get_bloginfo( 'name' ) ); ?> logo" src="<?php

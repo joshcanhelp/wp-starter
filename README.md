@@ -76,15 +76,8 @@ Use this if you don't want any of my namespacing or are going to make significan
 	1. `grunt sass`
 	2. `grunt browserify`
 	3. `grunt inlinecss`
-15. Open *functions.php* and make the following changes:
-	1. Find the first instance of the `ALLONSY_THEME_VERSION` constant and [PhpStorm] Right Click > Refactor > Rename; for example `ALLONSY_THEME_VERSION` would change to `THEME_SLUG_THEME_VERSION`
-	2. Refactor `ALLONSY_THEME_VERSION_OPT_NAME` similarly and change the value to match your theme slug
-	3. Change the option name in `allonsy_plugin_activation` to match the theme slug
-	4. Review `allonsy_hook_after_setup_theme` function for things to remove or change
-	5. Review `allonsy_hook_init` function for things to remove or change
-	6. Forgive me for not being very funny in this bullet point block
-16. Refresh wp-admin and the homepage of the site to make sure there are no errors or notices
-17. [PhpStorm] Create a new local scope:
+15. Refresh wp-admin and the homepage of the site to make sure there are no errors or notices
+16. [PhpStorm] Create a new local scope:
 	1. Go to **Preferences > Appearance > Scopes**
 	2. Click the "+" to add a new Local scope
 	3. For "Name" use the theme slug
@@ -97,14 +90,14 @@ Use this if you don't want any of my namespacing or are going to make significan
 	10. Click */assets/css/sass/vendor* and click **Exclude Recursively**
 	11. Click */emails* and click **Exclude Recursively**
 	12. Click */includes/classes/PhpFormBuilder.php* and click **Exclude**
-18. If you want to namespace the theme to get rid of the Allons-Y brand (haha), here are a few tips using PhpStorm
+17. If you want to namespace the theme to get rid of the Allons-Y brand (haha), here are a few tips using PhpStorm 
 	1. Go to **Edit > Find > Replace in path**, then under the Scope heading, select Custom and pick the local scope created above for all actions; use case sensitive searching
 	2. Replace `allonsy_` with a PHP function name-friendly version of your theme slug (lowercase letters, numbers, and underscores starting with a letter) to handle functions, varibles, and string literals
 	3. Replace `allons-y` with your text domain, chosen above
 	4. Replace `allonsy-` with your theme slug followed by a `-` for HTML attributes, CSS classes, and a few other things
 	5. Rename the file and class at /inc/classes/class-allonsy-log-it.php
-	6. Fianlly, search for `allons` not-case-sensitive to find all the rest
-19. [PhpStorm] Now run a Code Inspection on this project so far at **Code > Inspect Code**; make sure to select the custom scope created above to only include the new files
+	6. Finally, search for `allons` not-case-sensitive to find all the rest
+18. [PhpStorm] Now run a Code Inspection on this project so far at **Code > Inspect Code**; make sure to select the custom scope created above to only include the new files
 
 ### Option 2: The Easy Way - Child Theme
 
