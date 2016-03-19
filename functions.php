@@ -83,7 +83,7 @@ require_once( 'inc/classes/class-allonsy-log-it.php' );
 
 // Custom post type includes
 
-require_once( 'inc/cpt/cpt-1.php' );
+//require_once( 'inc/cpt/cpt-1.php' );
 
 // Widgets!
 
