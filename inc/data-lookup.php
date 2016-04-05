@@ -89,8 +89,7 @@ function allonsy_get_post_img_url( $pid = 0, $size = 'thumbnail' ) {
 
 	return ! empty( $img_url[0] ) ?
 		$img_url[0] :
-		get_stylesheet_directory_uri() . '/assets/img/default-img-size-' . $size . '.png';
-
+		allonsy_theme_img( 'default-img-size-' . $size . '.png' );
 }
 
 
