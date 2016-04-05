@@ -81,7 +81,10 @@ require_once( 'inc/wp-redirects.php' );
 require_once( 'inc/header-footer.php' );
 require_once( 'inc/classes/class-allonsy-log-it.php' );
 
-// Custom post type includes
+/*
+ * Custom post type boilerplate
+ * Uncomment if needed or include in a child theme
+ */
 
 //require_once( 'inc/cpt/cpt-1.php' );
 
@@ -300,7 +303,7 @@ function allonsy_hook_after_setup_theme() {
 	 *
 	 * @see https://codex.wordpress.org/Function_Reference/load_theme_textdomain
 	 */
-	load_theme_textdomain( 'smsframe', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'allons-y', get_template_directory() . '/languages' );
 
 
 	/**

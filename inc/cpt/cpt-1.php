@@ -109,6 +109,56 @@ function allonsy_hook_allonsy_cpt () {
  add_action( 'init', 'allonsy_hook_allonsy_cpt', 20 );
 
 /**
+ * Change username label on wp-login.php to support the above
+ *
+ * @param $translated_text
+ * @param $text
+ * @param $domain
+ *
+ * @return string
+ */
+
+function allonsy_gettext_bt_beer( $translated_text, $text, $domain ) {
+
+	// CPT 1 edit page only
+
+	if ( allonsy_is_editing_cpt1() ) {
+
+		if ( 'Featured Image' === $translated_text ) {
+			$translated_text = __( 'Custom Thumbnail', 'allons-y' );
+		}
+
+		if ( 'Set featured image' === $translated_text ) {
+			$translated_text = __( 'Set Custom Thumbnail', 'allons-y' );
+		}
+	}
+
+	return $translated_text;
+}
+
+add_filter( 'gettext', 'allonsy_gettext_bt_beer', 20, 3 );
+
+/**
+ * Are we on the CPT 1 edit page?
+ *
+ * @return bool
+ */
+function allonsy_is_editing_cpt1() {
+
+	if ( ! empty( $_GET['post_type'] ) && 'cpt-1' == $_GET['post_type'] ) {
+		return TRUE;
+	}
+	if ( ! empty( $_GET['post'] ) && 'cpt-1' == get_post_type( $_GET['post'] ) ) {
+		return TRUE;
+	}
+	if ( ! empty( $_REQUEST['post_id'] ) && 'cpt-1' == get_post_type( $_REQUEST['post_id'] ) ) {
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+/**
  * Add custom post columns for products
  *
  * @param $defaults
