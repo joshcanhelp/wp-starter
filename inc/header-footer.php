@@ -1,6 +1,78 @@
 <?php
 
 /**
+ * Alter meta title in some cases
+ *
+ * @param $title
+ * @param $sep
+ *
+ * @return string
+ */
+function allonsy_custom_meta_title( $title ) {
+
+	if ( is_page() || is_singular( 'post' ) ) {
+
+		// Non-generated title for this page
+		if ( allonsy_tpl_meta( 'page_meta_title' ) ) {
+			$title = allonsy_tpl_meta( 'page_meta_title' );
+		}
+
+	} else if ( is_singular( 'cpt-1' ) ) {
+
+		$manufacturer = get_the_terms( get_the_ID(), 'custom-taxonomy' );
+
+		$title = sprintf(
+			'%s | %s %s by the %s',
+			get_the_title(),
+			allonsy_tpl_meta( 'meta_field_1' ),
+			! empty( $manufacturer ) ? ' from ' . $manufacturer[0]->name : '',
+			allonsy_tpl_meta( 'meta_field_2' )
+		);
+
+
+	} else if ( is_tax( 'custom-taxonomy' ) ) {
+
+		// Current term data
+		$term      = get_queried_object();
+		$term_meta = get_option( 'taxonomy_meta_' . $term->term_id, '' );
+
+		if ( ! empty( $term_meta['meta_title'] ) ) {
+			$title = $term_meta['meta_title'];
+		} else {
+			$title = $term->name . ' Products';
+
+			// Show term parent if there is one
+			if ( ! empty( $term->parent ) ) {
+				$term_parent = get_term_by( 'id', $term->parent, $term->taxonomy );
+				$title .= ' in ' . $term_parent->name;
+			}
+		}
+
+	} else if ( is_tax( 'category' ) ) {
+
+		// Current term data
+		$term      = get_queried_object();
+		$title = $term->name . ' posts';
+
+	} else if ( is_search() ) {
+
+		$title = 'Search results for "' . get_query_var( 's' ) . '" on ' . get_bloginfo( 'name' );
+
+	}
+
+	// If we have room left, add the site name
+	$add_on = ' | ' . get_bloginfo( 'name' );
+	if ( strlen( $title . $add_on ) <= 70 && strpos( $title, $add_on ) === FALSE ) {
+		$title .= $add_on;
+	}
+
+	return $title;
+}
+
+add_filter( 'pre_get_document_title', 'allonsy_custom_meta_title', 10, 2 );
+
+
+/**
  * Meta tags on all pages
  */
 function allonsy_head_meta_tags () {

@@ -62,7 +62,7 @@ function allonsy_theme_img( $file_name ) {
  *
  * @see wp_get_attachment_image_src()
  *
- * @param int $pid - post ID
+ * @param int    $pid  - post ID
  * @param string $size - valid image size, either core or created in the theme
  *
  * @return string
@@ -79,19 +79,31 @@ function allonsy_get_post_img_url( $pid = 0, $size = 'thumbnail' ) {
 
 	$image_pid = get_post_thumbnail_id( $pid );
 
+	$img_url = allonsy_get_attached_img_src( $image_pid, $size );
+
+	return $img_url ?
+		$img_url :
+		get_template_directory_uri() . '/assets/img/default-img-size-' . $size . '.png';
+
+}
+
+/**
+ * Get the img URL using an attachment ID
+ *
+ * @param int    $attach_id
+ * @param string $size
+ *
+ * @return string
+ */
+function allonsy_get_attached_img_src( $attach_id, $size = 'thumbnail' ) {
+
 	// Will return an array of data about the image, if one exists
 	// https://developer.wordpress.org/reference/functions/wp_get_attachment_image_src/
 
-	$img_url = wp_get_attachment_image_src( $image_pid, $size );
+	$img_url = wp_get_attachment_image_src( $attach_id, $size );
 
-	// Return the URL if there is one or a blank string
-	// Could be modified to pass back a default image of the correct size, stored in the theme
-
-	return ! empty( $img_url[0] ) ?
-		$img_url[0] :
-		allonsy_theme_img( 'default-img-size-' . $size . '.png' );
+	return ! empty( $img_url[0] ) ? $img_url[0] : '';
 }
-
 
 /**
  * Get all attachments with a document-like mime type

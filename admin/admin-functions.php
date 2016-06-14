@@ -28,6 +28,7 @@ require_once( 'admin-display-filters.php' );
 require_once( 'admin-enqueue.php' );
 require_once( 'admin-profile.php' );
 require_once( 'theme-customizer.php' );
+require_once( 'admin-data-lookup.php' );
 
 // TODO: Needs work in general
 // require_once( 'wysiwyg-editor-functions.php' );
