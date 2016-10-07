@@ -179,27 +179,27 @@ picture {
   margin: 0;
   max-width: 100%; }
 
-.site-header .inner, .site-breadcrumbs .inner, .single-page .inner, .allonsy-test-color-grid .inner, .gallery {
+.site-header .inner, .site-nav-main-wrap .inner, .site-breadcrumbs .inner, .single-page .inner, .allonsy-test-color-grid .inner, .gallery {
   zoom: 1; }
-  .site-header .inner:before, .site-breadcrumbs .inner:before, .single-page .inner:before, .allonsy-test-color-grid .inner:before, .gallery:before, .site-header .inner:after, .site-breadcrumbs .inner:after, .single-page .inner:after, .allonsy-test-color-grid .inner:after, .gallery:after {
+  .site-header .inner:before, .site-nav-main-wrap .inner:before, .site-breadcrumbs .inner:before, .single-page .inner:before, .allonsy-test-color-grid .inner:before, .gallery:before, .site-header .inner:after, .site-nav-main-wrap .inner:after, .site-breadcrumbs .inner:after, .single-page .inner:after, .allonsy-test-color-grid .inner:after, .gallery:after {
     content: "";
     display: table; }
-  .site-header .inner:after, .site-breadcrumbs .inner:after, .single-page .inner:after, .allonsy-test-color-grid .inner:after, .gallery:after {
+  .site-header .inner:after, .site-nav-main-wrap .inner:after, .site-breadcrumbs .inner:after, .single-page .inner:after, .allonsy-test-color-grid .inner:after, .gallery:after {
     clear: both; }
 
-.site-header, .site-breadcrumbs, .single-page, .allonsy-test-color-grid, .u-list-inline, body {
+.site-header, .site-nav-main-wrap, .site-breadcrumbs, .single-page, .allonsy-test-color-grid, .u-list-inline, body {
   padding: 0;
   margin: 0; }
 
-.site-header, .site-breadcrumbs, .single-page, .allonsy-test-color-grid {
+.site-header, .site-nav-main-wrap, .site-breadcrumbs, .single-page, .allonsy-test-color-grid {
   min-width: 300px;
   width: 100%; }
-  .site-header .inner, .site-breadcrumbs .inner, .single-page .inner, .allonsy-test-color-grid .inner {
+  .site-header .inner, .site-nav-main-wrap .inner, .site-breadcrumbs .inner, .single-page .inner, .allonsy-test-color-grid .inner {
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 2%; }
-    .site-header .inner::after, .site-breadcrumbs .inner::after, .single-page .inner::after, .allonsy-test-color-grid .inner::after {
+    .site-header .inner::after, .site-nav-main-wrap .inner::after, .site-breadcrumbs .inner::after, .single-page .inner::after, .allonsy-test-color-grid .inner::after {
       clear: both;
       content: "";
       display: table; }
