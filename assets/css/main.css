@@ -332,7 +332,8 @@ picture {
     display: inline-block; }
 
 body {
-  color: #111; }
+  color: #111;
+  background-color: white; }
 
 .allonsy-test-color-grid {
   color: white; }

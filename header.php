@@ -31,6 +31,10 @@
 			<?php endif; ?>
 		</a>
 
+		<?php if ( $tagline = get_bloginfo( 'description' ) ) : ?>
+		<p><?php echo sanitize_text_field( $tagline ) ?></p>
+		<?php endif; ?>
+
 		<p>
 			<a href="#" id="js-allonsy-get-latest-post" data-nonce="<?php
 			echo sanitize_text_field( wp_create_nonce( 'allonsy_get_latest_post' ) ) ?>"><?php
