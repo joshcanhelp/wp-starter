@@ -10,19 +10,19 @@
     "type": "git",
     "url": "https://github.com/joshcanhelp/wp-starter"
   },
-  "author": "PROPER Web Development (hi@theproperweb.com)",
+  "author": "Josh Cunningham (josh@joshcanhelp.com)",
   "license": "GNU v2",
   "dependencies": {
     "browserify-shim": "^3.8.7"
   },
   "devDependencies": {
     "browserify": "^10.2.3",
-    "grunt": "^0.4.5",
     "grunt-browserify": "^3.8.0",
-    "grunt-contrib-watch": "^0.6.1",
     "grunt-inline-css": "^0.1.4",
+    "uglifyify": "^3.0.1",
+    "grunt": "^1.0.0",
     "grunt-sass": "^1.0.0",
-    "uglifyify": "^3.0.1"
+    "grunt-contrib-watch": "^1.0.0"
   },
   "browser": {
     "jquery": "jQuery"
