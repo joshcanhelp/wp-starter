@@ -63,33 +63,37 @@ define( 'ALLONSY_THEME_ROOT', dirname( __FILE__ ) );
 
 // Admin functionality
 
-require_once( 'admin/admin-functions.php' );
+require_once 'admin/admin-functions.php';
 
 // Base custom theme functionality
 
-require_once( 'inc/data-lookup.php' );
-require_once( 'inc/data-transformation.php' );
-require_once( 'inc/shortcodes.php' );
-require_once( 'inc/theme-display-hooks.php' );
-require_once( 'inc/theme-data-filters.php' );
-require_once( 'inc/theme-display-functions.php' );
-require_once( 'inc/wp-enqueue.php' );
-require_once( 'inc/wp-ajax.php' );
-require_once( 'inc/wp-redirects.php' );
+require_once 'inc/data-lookup.php';
+require_once 'inc/data-transformation.php';
+require_once 'inc/shortcodes.php';
+require_once 'inc/theme-display-hooks.php';
+require_once 'inc/theme-data-filters.php';
+require_once 'inc/theme-display-functions.php';
+require_once 'inc/wp-enqueue.php';
+require_once 'inc/wp-ajax.php';
+require_once 'inc/wp-redirects.php';
 
-require_once( 'inc/header-footer.php' );
-require_once( 'inc/classes/class-allonsy-log-it.php' );
+require_once 'inc/header-footer.php';
+require_once 'inc/classes/class-allonsy-log-it.php';
 
 /*
  * Custom post type boilerplate
  * Uncomment if needed or include in a child theme
  */
 
-//require_once( 'inc/cpt/cpt-1.php' );
+// require_once 'inc/cpt/cpt-1.php';
 
 // Widgets!
 
-require_once( 'inc/widgets/widget-master.php' );
+require_once 'inc/widgets/widget-master.php';
+
+// Mailchimp API functions
+
+//require_once 'inc/mailchimp-api-v2.php';
 
 
 /**
