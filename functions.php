@@ -70,14 +70,13 @@ require_once 'admin/admin-functions.php';
 require_once 'inc/data-lookup.php';
 require_once 'inc/data-transformation.php';
 require_once 'inc/shortcodes.php';
-require_once 'inc/theme-display-hooks.php';
 require_once 'inc/theme-data-filters.php';
 require_once 'inc/theme-display-functions.php';
 require_once 'inc/wp-enqueue.php';
+require_once 'inc/wp-head.php';
 require_once 'inc/wp-ajax.php';
 require_once 'inc/wp-redirects.php';
 
-require_once 'inc/header-footer.php';
 require_once 'inc/classes/class-allonsy-log-it.php';
 
 /*

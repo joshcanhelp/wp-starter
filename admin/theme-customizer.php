@@ -8,13 +8,27 @@
  * @subpackage AllonsYFramework
  */
 
-/*
+/**
  * Do not allow this file to be loaded directly
  */
 
 if ( ! function_exists( 'add_action' ) ) {
 	die( 'Nothing to do...' );
 }
+
+
+/**
+ * If you're using colors in the Customizer, make sure this is added.
+ */
+
+function allonsy_customize_controls_enqueue_scripts() {
+
+	wp_enqueue_style( 'wp-color-picker' );
+	wp_enqueue_script( 'wp-color-picker' );
+}
+
+add_action( 'customize_controls_enqueue_scripts', 'allonsy_customize_controls_enqueue_scripts' );
+
 
 /**
  * Add and change Customizer panels, sections, settings, and mods

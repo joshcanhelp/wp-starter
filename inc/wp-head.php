@@ -34,9 +34,7 @@ add_filter( 'pre_get_document_title', 'allonsy_custom_meta_title', 10, 2 );
  */
 function allonsy_head_meta_tags () {
 
-	global $post;
-
-	$meta_title = wp_title( '|', FALSE, 'right' );
+	$meta_title = player_custom_meta_title( wp_title( '|', FALSE, 'right' ) );
 
 	?>
 	<meta property="og:title" content="<?php echo $meta_title ?>">
