@@ -19,8 +19,6 @@
  */
 function allonsy_wp_enqueue_scripts() {
 
-	global $wp_scripts;
-
 	/*
 	 * Main stylesheet file for all pages, should be final, pre-processed file
 	 */
@@ -45,11 +43,7 @@ function allonsy_wp_enqueue_scripts() {
 		FALSE
 	);
 
-	$wp_scripts->add_data(
-		'allonsy-lte-ie8',
-		'conditional',
-		'lte IE 8'
-	);
+	wp_script_add_data( 'allonsy-lte-ie8', 'conditional', 'lte IE 8' );
 
 	/*
 	 * Main JavaScript file

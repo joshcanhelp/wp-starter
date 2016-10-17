@@ -12,7 +12,7 @@
  * @subpackage AllonsYFramework
  */
 
-/*
+/**
  * Do not allow this file to be loaded directly
  */
 
@@ -20,12 +20,8 @@ if ( ! function_exists( 'add_action' ) ) {
 	die( 'Nothing to do...' );
 }
 
-/*
- * Define constants here.
- * Constants are values used throughout the theme but do not change.
- */
 
-/*
+/**
  * Theme version used for:
  *
  * - Asset cache breaking
@@ -40,7 +36,8 @@ if ( ! function_exists( 'add_action' ) ) {
 define( 'ALLONSY_THEME_VERSION', '0.0.1' );
 define( 'ALLONSY_THEME_VERSION_OPT_NAME', 'allonsy_theme_version' );
 
-/*
+
+/**
  * Easy domain check, often used for determining:
  *
  * - Whether or not analytics should show
@@ -49,13 +46,15 @@ define( 'ALLONSY_THEME_VERSION_OPT_NAME', 'allonsy_theme_version' );
 
 define( 'ALLONSY_CURRENT_DOMAIN', ! empty( $_SERVER['SERVER_NAME'] ) ? $_SERVER['SERVER_NAME'] : '' );
 
+
 /**
  * Definitive theme root path
  */
 
 define( 'ALLONSY_THEME_ROOT', dirname( __FILE__ ) );
 
-/*
+
+/**
  * Required files. Best practices here are:
  *
  * - Require main files here, subsets should be required in those main files (like widgets, admin functions, etc)
@@ -64,33 +63,37 @@ define( 'ALLONSY_THEME_ROOT', dirname( __FILE__ ) );
 
 // Admin functionality
 
-require_once( 'admin/admin-functions.php' );
+require_once 'admin/admin-functions.php';
 
 // Base custom theme functionality
 
-require_once( 'inc/data-lookup.php' );
-require_once( 'inc/data-transformation.php' );
-require_once( 'inc/shortcodes.php' );
-require_once( 'inc/theme-display-hooks.php' );
-require_once( 'inc/theme-data-filters.php' );
-require_once( 'inc/theme-display-functions.php' );
-require_once( 'inc/wp-enqueue.php' );
-require_once( 'inc/wp-ajax.php' );
-require_once( 'inc/wp-redirects.php' );
+require_once 'inc/data-lookup.php';
+require_once 'inc/data-transformation.php';
+require_once 'inc/shortcodes.php';
+require_once 'inc/theme-display-hooks.php';
+require_once 'inc/theme-data-filters.php';
+require_once 'inc/theme-display-functions.php';
+require_once 'inc/wp-enqueue.php';
+require_once 'inc/wp-ajax.php';
+require_once 'inc/wp-redirects.php';
 
-require_once( 'inc/header-footer.php' );
-require_once( 'inc/classes/class-allonsy-log-it.php' );
+require_once 'inc/header-footer.php';
+require_once 'inc/classes/class-allonsy-log-it.php';
 
 /*
  * Custom post type boilerplate
  * Uncomment if needed or include in a child theme
  */
 
-//require_once( 'inc/cpt/cpt-1.php' );
+// require_once 'inc/cpt/cpt-1.php';
 
 // Widgets!
 
-require_once( 'inc/widgets/widget-master.php' );
+require_once 'inc/widgets/widget-master.php';
+
+// Mailchimp API functions
+
+//require_once 'inc/mailchimp-api-v2.php';
 
 
 /**
@@ -242,6 +245,7 @@ function allonsy_hook_after_setup_theme() {
 	 * @since 3.6
 	 *
 	 */
+
 	add_theme_support(
 		'html5',
 		array(
@@ -303,6 +307,7 @@ function allonsy_hook_after_setup_theme() {
 	 *
 	 * @see https://codex.wordpress.org/Function_Reference/load_theme_textdomain
 	 */
+
 	load_theme_textdomain( 'allons-y', get_template_directory() . '/languages' );
 
 
@@ -315,6 +320,7 @@ function allonsy_hook_after_setup_theme() {
 
 	$version = floatval( get_option( ALLONSY_THEME_VERSION_OPT_NAME, '' ) );
 
+
 	/**
 	 * If stored version is less than the version of the current theme, continue
 	 *
@@ -323,13 +329,14 @@ function allonsy_hook_after_setup_theme() {
 
 	if ( empty( $version ) || version_compare( $version, ALLONSY_THEME_VERSION ) < 0 ) {
 
-		/*
+		/**
 		 * Best thing to do here is include a repair file like, say,  /admin/upgrade-repairs.php that checks for
 		 * inconsistencies and makes changes.
 		 */
 	}
 
-	/*
+
+	/**
 	 * Update the stored version if different from the current one
 	 */
 
@@ -362,6 +369,7 @@ function allonsy_hook_init() {
 	 */
 
 	add_post_type_support( 'page', array( 'excerpt', 'thumbnail' ) );
+
 
 	/**
 	 * Remove custom field UI on pages and posts.
