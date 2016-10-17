@@ -109,6 +109,26 @@ function allonsy_hook_allonsy_cpt () {
  add_action( 'init', 'allonsy_hook_allonsy_cpt', 20 );
 
 /**
+ * Change the title placeholder on class edit screens
+ *
+ * @param $title
+ *
+ * @return string
+ */
+
+function allonsy_cpt_1_enter_title_here( $title ) {
+
+	if ( allonsy_is_editing_cpt1() ) {
+		$title = 'New placeholder!';
+	}
+
+	return $title;
+}
+
+add_filter( 'enter_title_here', 'allonsy_cpt_1_enter_title_here' );
+
+
+/**
  * Change username label on wp-login.php to support the above
  *
  * @param $translated_text

@@ -77,6 +77,8 @@ add_filter( 'pre_get_document_title', 'allonsy_custom_meta_title', 10, 2 );
  */
 function allonsy_head_meta_tags () {
 
+	global $post;
+
 	$meta_title = wp_title( '|', FALSE, 'right' );
 
 	?>
@@ -99,11 +101,11 @@ function allonsy_head_meta_tags () {
 	$og_type = 'website';
 	if ( is_singular() ) {
 
-		// Custom description for this page or post
-		if ( allonsy_tpl_meta( 'page_meta_desc' ) ) {
-			$desc = allonsy_tpl_meta( 'page_meta_desc' );
-		} else {
-			$desc = get_the_excerpt();
+		// Custom description for this page or post in custom fields
+
+		if ( ! $desc = allonsy_tpl_meta( 'page_meta_desc' ) ) {
+			$desc = strip_tags( $post->post_content );
+			$desc = allonsy_truncate( $desc, 160 );
 		}
 
 		$url = get_permalink();

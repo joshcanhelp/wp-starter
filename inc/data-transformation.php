@@ -148,3 +148,55 @@ function allonsy_sanitize_twitter( $twit ) {
 
 	return '';
 }
+
+
+/**
+ * Text output formatting
+ *
+ * @param string $type   "tel" or "email" or "url"
+ * @param        string  , int   $value  value to format
+ * @param bool   $return - return the value or not; if not, echo
+ *
+ * @return string|void
+ */
+
+function allonsy_format_output( $type, $value, $return = FALSE ) {
+
+	$r = '';
+
+	switch ( $type ) {
+
+		case 'tel':
+			$r = sprintf(
+				'<a href="tel:%s">%s</a>',
+				sanitize_text_field( $value ),
+				sanitize_text_field( $value )
+			);
+			break;
+
+		case 'email':
+			$r = sprintf(
+				'<a href="mailto:%s">%s</a>',
+				sanitize_email( $value ),
+				sanitize_email( $value )
+			);
+			break;
+
+		case 'url':
+
+			$url_parts = parse_url( $value );
+
+			$r = sprintf(
+				'<a href="%s"><i class="icon icon-link"></i>%s/...</a>',
+				esc_url( $value ),
+				sanitize_text_field( $url_parts['host'] )
+			);
+			break;
+	}
+
+	if ( $return ) {
+		return $r;
+	} else {
+		echo $r;
+	}
+}

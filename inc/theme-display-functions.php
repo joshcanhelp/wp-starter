@@ -200,32 +200,47 @@ if ( ! function_exists( 'allonsy_share_links' ) ) {
 	 *
 	 * @param int    $pid
 	 * @param string $title
+	 * @param string $img
 	 */
 
-	function allonsy_share_links( $pid, $title ) {
+	function allonsy_share_links( $pid = 0, $title = '', $img = '' ) {
+
+		// Default to current post globals
+
+		if ( empty( $pid ) ) {
+			$pid = get_the_ID();
+		}
+
+		if ( empty( $title ) ) {
+			$title = get_the_title( $pid );
+		}
+
+		if ( empty( $img ) ) {
+			$img = allonsy_get_post_img_url( $pid );
+		}
 
 		$permalink = get_permalink( $pid );
-		$sharing   = array();
+		$sharing   = [ ];
 
 		// Twitter sharing
 		$sharing['twitter'] = sprintf(
-			'https://twitter.com/intent/tweet?text=%s&amp;url=%s',
+			'https://twitter.com/intent/tweet?text=%s&url=%s',
 			urlencode( $title ),
 			urlencode( $permalink )
 		);
 
 		// LinkedIn sharing
 		$sharing['linkedin'] = sprintf(
-			'http://www.linkedin.com/shareArticle?mini=true&amp;title=%s&amp;url=%s',
+			'http://www.linkedin.com/shareArticle?mini=true&title=%s&url=%s',
 			urlencode( $title ),
 			urlencode( $permalink )
 		);
 
 		// Pinterest sharing
 		$sharing['pinterest'] = sprintf(
-			'http://pinterest.com/pin/create/button/?url=%s&amp;media=%s&amp;description=%s',
+			'http://pinterest.com/pin/create/button/?url=%s&image_url=%s&description=%s',
 			urlencode( $permalink ),
-			urlencode( wp_get_attachment_url( get_post_thumbnail_id( $pid ) ) ),
+			urlencode( $img ),
 			urlencode( $title )
 		);
 
@@ -235,10 +250,11 @@ if ( ! function_exists( 'allonsy_share_links' ) ) {
 		// Google Plus sharing
 		$sharing['gplus'] = 'https://plus.google.com/share?url=' . urlencode( $permalink );
 
-		foreach ( array( 'twitter', 'facebook', 'gplus', 'linkedin' ) as $network ) {
+		foreach ( [ 'twitter', 'facebook', 'pinterest' ] as $network ) {
 			printf(
-				'<a href="%s" target="_blank" rel="nofollow" class="share-%s share-link"><i class="icon-%s"></i></a>',
-				$sharing[ $network ],
+				'<a href="%s" target="_blank" rel="nofollow" class="bt-share bt-share__%s">
+					<i class="icon icon-%s bt-sharing--icon"></i></a>',
+				esc_url( $sharing[ $network ] ),
 				$network,
 				$network
 			);

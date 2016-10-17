@@ -6,6 +6,45 @@
 
 	$(document).ready(function () {
 
+
+		//
+		// Generic scroll to anchor
+		//
+
+		$('body').on('click', '.js-scroll-to, .js-scroll-nav a', function (e) {
+
+			var target = $(this);
+			var scrollTo = $(target.attr('href'));
+
+			if (scrollTo.length) {
+				e.preventDefault();
+				var scrollToVal = scrollTo.offset().top;
+
+				// Adjust desktop for logo height
+
+				if (!Utils.viewportIsSmall()) {
+					scrollToVal = scrollToVal - 110;
+				}
+
+				$('html, body').animate({scrollTop: scrollToVal}, 'slow');
+			}
+		});
+
+
+		//
+		// Set equal height kinda like flexbox
+		//
+
+		var setToEqualHeight = $('.js-equal-height');
+
+		if (setToEqualHeight.length) {
+			window.setTimeout(function () {
+				$.each(setToEqualHeight, function (index, el) {
+					Utils.setEqualHeight($(this).find('> div'));
+				});
+			}, 1000)
+		}
+
 		// Little easier to type over and over
 
 		var localVars = allonsyLocalVars;
