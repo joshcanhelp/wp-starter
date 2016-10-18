@@ -9,13 +9,15 @@
  * @subpackage AllonsYFramework
  */
 
-/*
+
+/**
  * Do not allow this file to be loaded directly.
  */
 
 if ( ! function_exists( 'add_action' ) ) {
 	die( 'Nothing to do...' );
 }
+
 
 /**
  * Get a single meta field from the database or cache.
@@ -28,6 +30,7 @@ if ( ! function_exists( 'add_action' ) ) {
  *
  * @return string
  */
+
 function allonsy_tpl_meta( $meta_key, $pid = 0 ) {
 
 	// If no post ID passed in, get the global value
@@ -39,6 +42,7 @@ function allonsy_tpl_meta( $meta_key, $pid = 0 ) {
 	return get_post_meta( $pid, $meta_key, TRUE );
 }
 
+
 /**
  * Get the URL to an image in the theme's assets directory.
  * This file does not check for the validity of the URL.
@@ -47,10 +51,12 @@ function allonsy_tpl_meta( $meta_key, $pid = 0 ) {
  *
  * @return string
  */
+
 function allonsy_theme_img( $file_name ) {
 
 	return get_stylesheet_directory_uri() . '/assets/img/' . $file_name;
 }
+
 
 /**
  * Gets the featured image URL or the default image if that doesn't exist.
@@ -67,6 +73,7 @@ function allonsy_theme_img( $file_name ) {
  *
  * @return string
  */
+
 function allonsy_get_post_img_url( $pid = 0, $size = 'thumbnail' ) {
 
 	// If no post ID passed in, get the global value
@@ -84,8 +91,8 @@ function allonsy_get_post_img_url( $pid = 0, $size = 'thumbnail' ) {
 	return $img_url ?
 		$img_url :
 		get_template_directory_uri() . '/assets/img/default-img-size-' . $size . '.png';
-
 }
+
 
 /**
  * Get the img URL using an attachment ID
@@ -95,6 +102,7 @@ function allonsy_get_post_img_url( $pid = 0, $size = 'thumbnail' ) {
  *
  * @return string
  */
+
 function allonsy_get_attached_img_src( $attach_id, $size = 'thumbnail' ) {
 
 	// Will return an array of data about the image, if one exists
@@ -104,6 +112,7 @@ function allonsy_get_attached_img_src( $attach_id, $size = 'thumbnail' ) {
 
 	return ! empty( $img_url[0] ) ? $img_url[0] : '';
 }
+
 
 /**
  * Get all attachments with a document-like mime type
@@ -126,7 +135,6 @@ function allonsy_get_attached_docs( $pid = 0 ) {
 	) );
 
 	return ! empty( $docs ) ? $docs : array();
-
 }
 
 
@@ -153,6 +161,7 @@ function allonsy_get_single_cat( $link_html = FALSE, $tax = 'category' ) {
 	return '';
 }
 
+
 /**
  * Allowed HTML array for wp_kses on basic WYSIWYG fields
  *
@@ -160,6 +169,7 @@ function allonsy_get_single_cat( $link_html = FALSE, $tax = 'category' ) {
  *
  * @return array
  */
+
 function allonsy_kses_wysiwyg_filtering() {
 	return array(
 		'a' => array(
@@ -192,6 +202,7 @@ function allonsy_kses_wysiwyg_filtering() {
 	);
 }
 
+
 /**
  * Allowed basic HTML array for wp_kses on textareas
  *
@@ -199,6 +210,7 @@ function allonsy_kses_wysiwyg_filtering() {
  *
  * @return array
  */
+
 function allonsy_kses_textarea_filtering() {
 	return array(
 		'span' => array(
@@ -220,6 +232,7 @@ function allonsy_kses_textarea_filtering() {
  *
  * @return array
  */
+
 function allonsy_kses_embed_filtering() {
 	return array(
 		'iframe' => array(
@@ -232,6 +245,7 @@ function allonsy_kses_embed_filtering() {
 	);
 }
 
+
 /**
  * Allowed HTML array for wp_kses in SVG code
  *
@@ -239,6 +253,7 @@ function allonsy_kses_embed_filtering() {
  *
  * @return array
  */
+
 function allonsy_kses_svg_filtering() {
 	return array(
 		'svg' => array(
@@ -261,6 +276,7 @@ function allonsy_kses_svg_filtering() {
 	);
 }
 
+
 /**
  * Output an SVG
  *
@@ -268,6 +284,7 @@ function allonsy_kses_svg_filtering() {
  *
  * @return string
  */
+
 
 function allonsy_display_svg( $filename ) {
 	//echo file_get_contents( locate_template( 'svg/' . $filename ) );
