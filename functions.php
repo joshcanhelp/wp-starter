@@ -142,7 +142,7 @@ function allonsy_hook_after_setup_theme() {
 	 * Omit a <title> tag in header.php and make sure that wp_head() is being called.
 	 * Output can still be filtered using wp_title.
 	 *
-	 * @see https://codex.wordpress.org/Title_Tag
+	 * @see   https://codex.wordpress.org/Title_Tag
 	 *
 	 * @since 4.1
 	 */
@@ -155,7 +155,7 @@ function allonsy_hook_after_setup_theme() {
 	 * You can leave the second argument blank if you register custom post types with a post thumbnail.
 	 * This function allows overall control over the post types that allow thumbnails.
 	 *
-	 * @see https://codex.wordpress.org/Post_Thumbnails
+	 * @see   https://codex.wordpress.org/Post_Thumbnails
 	 *
 	 * @since 2.9
 	 */
@@ -170,7 +170,7 @@ function allonsy_hook_after_setup_theme() {
 	 * Set header-text as FALSE to disable text output.
 	 * Set width and height to enforce a specific size.
 	 *
-	 * @see https://codex.wordpress.org/Custom_Headers
+	 * @see   https://codex.wordpress.org/Custom_Headers
 	 *
 	 * @since 3.4
 	 */
@@ -190,7 +190,7 @@ function allonsy_hook_after_setup_theme() {
 	 * Set default-color to a hex code without a hash sign, if desired
 	 * Set default-image to a valid URL of an image, if desired
 	 *
-	 * @see https://codex.wordpress.org/Custom_Backgrounds
+	 * @see   https://codex.wordpress.org/Custom_Backgrounds
 	 *
 	 * @since 3.4
 	 */
@@ -264,9 +264,9 @@ function allonsy_hook_after_setup_theme() {
 	 * Each new size will create another image for each upload, eating up server space and slowing down the upload.
 	 * Make sure to add a default image for each one added to /assets/img/default-img-size-SIZE-ID.png
 	 *
-	 * @see https://developer.wordpress.org/reference/functions/add_image_size/
-	 * @see allonsy_get_post_img_url()
-	 *      
+	 * @see   https://developer.wordpress.org/reference/functions/add_image_size/
+	 * @see   allonsy_get_post_img_url()
+	 *
 	 * @since 2.9
 	 */
 
@@ -362,7 +362,7 @@ function allonsy_hook_init() {
 	 * Adds the excerpt field UI to pages, which do not have this field by default.
 	 * Good for pages that link to child pages and need to include a description.
 	 *
-	 * @see https://codex.wordpress.org/Function_Reference/add_post_type_support
+	 * @see   https://codex.wordpress.org/Function_Reference/add_post_type_support
 	 *
 	 * @since 3.0
 	 */
@@ -374,7 +374,7 @@ function allonsy_hook_init() {
 	 * Remove custom field UI on pages and posts.
 	 * Custom field output needs to be built into the theme and ACF is often used for creating field UI.
 	 *
-	 * @see https://codex.wordpress.org/Function_Reference/remove_post_type_support
+	 * @see   https://codex.wordpress.org/Function_Reference/remove_post_type_support
 	 *
 	 * @since 3.0
 	 */

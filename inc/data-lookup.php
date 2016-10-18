@@ -5,7 +5,7 @@
  * - Functions here should not be tied to hooks or filters
  * - Transformation of data should be done using filters or in /inc/data-transformations.php
  *
- * @package WordPress
+ * @package    WordPress
  * @subpackage AllonsYFramework
  */
 
@@ -129,8 +129,8 @@ function allonsy_get_attached_docs( $pid = 0 ) {
 	}
 
 	$docs = get_children( array(
-		'post_type' => 'attachment',
-		'post_parent' => $pid,
+		'post_type'      => 'attachment',
+		'post_parent'    => $pid,
 		'posts_per_page' => - 1
 	) );
 
@@ -172,31 +172,31 @@ function allonsy_get_single_cat( $link_html = FALSE, $tax = 'category' ) {
 
 function allonsy_kses_wysiwyg_filtering() {
 	return array(
-		'a' => array(
-			'href' => array(),
+		'a'      => array(
+			'href'  => array(),
 			'title' => array(),
 		),
-		'p' => array(),
-		'img' => array(
-			'src' => array(),
-			'alt' => array(),
-			'class' => array(),
-			'width' => array(),
+		'p'      => array(),
+		'img'    => array(
+			'src'    => array(),
+			'alt'    => array(),
+			'class'  => array(),
+			'width'  => array(),
 			'height' => array(),
 		),
-		'span' => array(
+		'span'   => array(
 			'class' => array(),
 		),
-		'cite' => array(
+		'cite'   => array(
 			'class' => array(),
 		),
-		'br' => array(),
-		'sup' => array(),
-		'hr' => array(),
-		'em' => array(),
+		'br'     => array(),
+		'sup'    => array(),
+		'hr'     => array(),
+		'em'     => array(),
 		'strong' => array(),
-		'b' => array(),
-		'i' => array(
+		'b'      => array(),
+		'i'      => array(
 			'class' => array(),
 		),
 	);
@@ -213,14 +213,14 @@ function allonsy_kses_wysiwyg_filtering() {
 
 function allonsy_kses_textarea_filtering() {
 	return array(
-		'span' => array(
+		'span'   => array(
 			'class' => array(),
 		),
-		'br' => array(),
+		'br'     => array(),
 		'strong' => array(),
-		'b' => array(),
-		'em' => array(),
-		'i' => array(),
+		'b'      => array(),
+		'em'     => array(),
+		'i'      => array(),
 	);
 }
 
@@ -236,11 +236,11 @@ function allonsy_kses_textarea_filtering() {
 function allonsy_kses_embed_filtering() {
 	return array(
 		'iframe' => array(
-			'frameborder' => array(),
+			'frameborder'     => array(),
 			'allowfullscreen' => array(),
-			'width' => array(),
-			'height' => array(),
-			'src' => array(),
+			'width'           => array(),
+			'height'          => array(),
+			'src'             => array(),
 		),
 	);
 }
@@ -256,23 +256,23 @@ function allonsy_kses_embed_filtering() {
 
 function allonsy_kses_svg_filtering() {
 	return array(
-		'svg' => array(
-			'xml:space' => array(),
-			'xmlns' => array(),
+		'svg'  => array(
+			'xml:space'   => array(),
+			'xmlns'       => array(),
 			'xmlns:xlink' => array(),
-			'version' => array(),
-			'x' => array(),
-			'y' => array(),
-			'viewbox' => array(),
-			'width' => array(),
-			'height' => array(),
-			'class' => array(),
+			'version'     => array(),
+			'x'           => array(),
+			'y'           => array(),
+			'viewbox'     => array(),
+			'width'       => array(),
+			'height'      => array(),
+			'class'       => array(),
 		),
 		'path' => array(
-			'd' => array(),
+			'd'     => array(),
 			'class' => array(),
 		),
-		'g' => array(),
+		'g'    => array(),
 	);
 }
 
