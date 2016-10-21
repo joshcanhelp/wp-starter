@@ -77,7 +77,9 @@ require_once 'inc/wp-head.php';
 require_once 'inc/wp-ajax.php';
 require_once 'inc/wp-redirects.php';
 
+require_once 'inc/cpt-allonsy.php';
 require_once 'inc/classes/class-allonsy-log-it.php';
+
 
 /*
  * Custom post type boilerplate
@@ -162,6 +164,24 @@ function allonsy_hook_after_setup_theme() {
 
 	add_theme_support( 'post-thumbnails' );
 
+
+	/**
+	 * Enable support for a custom logo in the theme
+	 *
+	 * @see https://codex.wordpress.org/Theme_Logo
+	 *
+	 * @since 4.5
+	 */
+
+	add_theme_support(
+		'custom-logo',
+		[
+			'height'      => 100,
+			'width'       => 400,
+			'flex-height' => TRUE,
+			'flex-width'  => TRUE,
+		]
+	);
 
 	/**
 	 * Enable support for logo/header upload in Customizer.

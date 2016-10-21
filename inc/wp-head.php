@@ -10,7 +10,7 @@
  */
 function allonsy_custom_meta_title( $title ) {
 
-	if ( is_singular() && $meta_title = allonsy_tpl_meta( 'meta_title' ) ) {
+	if ( is_singular() && $meta_title = pitts_tpl_meta( 'meta_title' ) ) {
 
 		// If we're on a single page, there might be a meta field to use
 
@@ -58,7 +58,7 @@ function allonsy_head_meta_tags () {
 
 		// Custom description for this page or post
 
-		$desc = allonsy_tpl_meta( 'meta_description' );
+		$desc = pitts_tpl_meta( 'meta_description' );
 
 		if ( empty( $desc ) ) {
 			$desc = get_the_excerpt();
@@ -109,7 +109,7 @@ function allonsy_head_meta_tags () {
 
 	if ( is_singular() ) {
 
-		$feat_img = wp_get_attachment_image_src( allonsy_tpl_meta( '_thumbnail_id' ), 'medium' );
+		$feat_img = wp_get_attachment_image_src( pitts_tpl_meta( '_thumbnail_id' ), 'medium' );
 		$feat_img_url = ! empty( $feat_img[0] ) ? $feat_img[0] : '';
 
 	}

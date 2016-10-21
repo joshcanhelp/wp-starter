@@ -31,7 +31,7 @@ if ( ! function_exists( 'add_action' ) ) {
  * @return string
  */
 
-function allonsy_tpl_meta( $meta_key, $pid = 0 ) {
+function pitts_tpl_meta( $meta_key, $pid = 0 ) {
 
 	// If no post ID passed in, get the global value
 

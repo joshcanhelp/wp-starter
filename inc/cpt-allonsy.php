@@ -7,13 +7,16 @@
  * @see https://codex.wordpress.org/Function_Reference/register_post_type
  * @see https://codex.wordpress.org/Function_Reference/register_taxonomy
  */
-function allonsy_hook_allonsy_cpt () {
+
+define( 'ALLONSY_CPT_1_SLUG', 'cpt-allonsy' );
+
+function allonsy_hook_cpt_allonsy () {
 
 	register_post_type(
 
 		// CPT machine name, I typically use dashes only for this
 
-		'cpt-1',
+		'cpt-allonsy',
 
 		// Args!
 
@@ -25,7 +28,7 @@ function allonsy_hook_allonsy_cpt () {
 			'labels' => [
 				'name' => _x( 'CPTs', 'post type general name', 'allons-y' ),
 				'singular_name' => _x( 'CPT', 'post type singular name', 'allons-y' ),
-				'add_new' => _x( 'Add CPT', 'cpt-1', 'allons-y' ),
+				'add_new' => _x( 'Add CPT', ALLONSY_CPT_1_SLUG, 'allons-y' ),
 				'add_new_item' => __( 'Add New CPT', 'allons-y' ),
 				'edit_item' => __( 'Edit CPT', 'allons-y' ),
 				'new_item' => __( 'New CPT', 'allons-y' ),
@@ -121,7 +124,7 @@ function allonsy_hook_allonsy_cpt () {
 
 	register_taxonomy(
 		'cpt-1-type',
-		[ 'cpt-1' ],
+		[ ALLONSY_CPT_1_SLUG ],
 		[
 			'description' => __( 'A quick description of this taxonomy', 'allons-y' ),
 			'labels' => [
@@ -182,7 +185,8 @@ function allonsy_hook_allonsy_cpt () {
 
 }
 
- add_action( 'init', 'allonsy_hook_allonsy_cpt', 20 );
+add_action( 'init', 'allonsy_hook_cpt_allonsy', 20 );
+
 
 /**
  * Change the title placeholder on class edit screens
@@ -192,16 +196,12 @@ function allonsy_hook_allonsy_cpt () {
  * @return string
  */
 
-function allonsy_cpt_1_enter_title_here( $title ) {
+function allonsy_cpt_allonsy_enter_title_here( $title ) {
 
-	if ( allonsy_is_editing_cpt1() ) {
-		$title = 'New placeholder!';
-	}
-
-	return $title;
+	return allonsy_is_editing_cpt_allonsy() ? 'New placeholder!' : $title;
 }
 
-add_filter( 'enter_title_here', 'allonsy_cpt_1_enter_title_here' );
+add_filter( 'enter_title_here', 'allonsy_cpt_allonsy_enter_title_here' );
 
 
 /**
@@ -214,11 +214,11 @@ add_filter( 'enter_title_here', 'allonsy_cpt_1_enter_title_here' );
  * @return string
  */
 
-function allonsy_gettext_bt_beer( $translated_text, $text, $domain ) {
+function allonsy_gettext_cpt_allonsy( $translated_text, $text, $domain ) {
 
 	// CPT 1 edit page only
 
-	if ( allonsy_is_editing_cpt1() ) {
+	if ( allonsy_is_editing_cpt_allonsy() ) {
 
 		if ( 'Featured Image' === $translated_text ) {
 			$translated_text = __( 'Custom Thumbnail', 'allons-y' );
@@ -232,27 +232,29 @@ function allonsy_gettext_bt_beer( $translated_text, $text, $domain ) {
 	return $translated_text;
 }
 
-add_filter( 'gettext', 'allonsy_gettext_bt_beer', 20, 3 );
+add_filter( 'gettext', 'allonsy_gettext_cpt_allonsy', 20, 3 );
+
 
 /**
  * Are we on the CPT 1 edit page?
  *
  * @return bool
  */
-function allonsy_is_editing_cpt1() {
+function allonsy_is_editing_cpt_allonsy() {
 
-	if ( ! empty( $_GET['post_type'] ) && 'cpt-1' == $_GET['post_type'] ) {
+	if ( ! empty( $_GET['post_type'] ) && ALLONSY_CPT_1_SLUG == $_GET['post_type'] ) {
 		return TRUE;
 	}
-	if ( ! empty( $_GET['post'] ) && 'cpt-1' == get_post_type( $_GET['post'] ) ) {
+	if ( ! empty( $_GET['post'] ) && ALLONSY_CPT_1_SLUG == get_post_type( $_GET['post'] ) ) {
 		return TRUE;
 	}
-	if ( ! empty( $_REQUEST['post_id'] ) && 'cpt-1' == get_post_type( $_REQUEST['post_id'] ) ) {
+	if ( ! empty( $_REQUEST['post_id'] ) && ALLONSY_CPT_1_SLUG == get_post_type( $_REQUEST['post_id'] ) ) {
 		return TRUE;
 	}
 
 	return FALSE;
 }
+
 
 /**
  * Add custom post columns for cpt-1
@@ -263,9 +265,9 @@ function allonsy_is_editing_cpt1() {
  * @return mixed
  */
 
-function allonsy_product_post_columns ( $defaults ) {
+function allonsy_post_columns_cpt_allonsy ( $defaults ) {
 
-	$defaults['allonsy_yes_no'] = 'Meta Field';
+	$defaults['meta_yes_no'] = 'Meta Field';
 	$defaults['thumbnail']          = 'Image';
 
 	// Remove standard publish date
@@ -275,7 +277,7 @@ function allonsy_product_post_columns ( $defaults ) {
 	return $defaults;
 
 }
- add_filter( 'manage_cpt-1_posts_columns', 'allonsy_product_post_columns' );
+ add_filter( 'manage_' . ALLONSY_CPT_1_SLUG . '_posts_columns', 'allonsy_post_columns_cpt_allonsy' );
 
 
 /**
@@ -285,44 +287,29 @@ function allonsy_product_post_columns ( $defaults ) {
  * @param $pid
  */
 
-function allonsy_product_custom_columns ( $col, $pid ) {
+function allonsy_manage_custom_columns_cpt_allonsy ( $col, $pid ) {
 
 	switch ( $col ) :
 
-		case 'allonsy_yes_no':
-			echo allonsy_tpl_meta( 'class_seats_available', $pid ) ?
+		case 'meta_yes_no':
+			echo pitts_tpl_meta( 'meta_yes_no', $pid ) ?
 				'<span class="dashicons dashicons-yes" style="color: green"></span>' :
 				'<span class="dashicons dashicons-no-alt" style="color: red"></span>';
+			break;
+
+		case 'meta_text':
+			echo pitts_tpl_meta( 'meta_text', $pid );
 			break;
 
 		case 'thumbnail':
 			echo has_post_thumbnail() ?
 				get_the_post_thumbnail( $pid, [ 100, 100 ] ) :
-				'<em>' . __( 'No featured image', 'allons-y' ) . '</em>';
+				'<em>' . __( 'Headshot', 'pitts-law' ) . '</em>';
 			break;
+
 
 	endswitch;
 
 }
 
-add_action( 'manage_posts_custom_column', 'allonsy_product_custom_columns', 10, 2 );
-
-
-/**
- * Change the title placeholder on class edit screens
- *
- * @param $title
- *
- * @return string
- */
-
-function allonsy_cpt1_enter_title_here( $title ) {
-
-	if ( allonsy_is_editing_cpt1() ) {
-		$title = 'CPT Name';
-	}
-
-	return $title;
-}
-
-add_filter( 'enter_title_here', 'allonsy_cpt1_enter_title_here' );
+add_action( 'manage_posts_custom_column', 'allonsy_manage_custom_columns_cpt_allonsy', 10, 2 );
