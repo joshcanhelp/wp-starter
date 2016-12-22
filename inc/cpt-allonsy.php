@@ -292,13 +292,13 @@ function allonsy_manage_custom_columns_cpt_allonsy ( $col, $pid ) {
 	switch ( $col ) :
 
 		case 'meta_yes_no':
-			echo pitts_tpl_meta( 'meta_yes_no', $pid ) ?
+			echo allonsy_tpl_meta( 'meta_yes_no', $pid ) ?
 				'<span class="dashicons dashicons-yes" style="color: green"></span>' :
 				'<span class="dashicons dashicons-no-alt" style="color: red"></span>';
 			break;
 
 		case 'meta_text':
-			echo pitts_tpl_meta( 'meta_text', $pid );
+			echo allonsy_tpl_meta( 'meta_text', $pid );
 			break;
 
 		case 'thumbnail':
