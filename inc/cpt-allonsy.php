@@ -93,7 +93,7 @@ function allonsy_hook_cpt_allonsy () {
 			'menu_position' => 27,
 
 			// Path to an icon or dashicon font
-			'menu_icon' => 'dashicons-star-filled',
+			'menu_icon' => 'dashicons-awards',
 
 			// What capabilities should users have?
 			'capability_type' => 'post',

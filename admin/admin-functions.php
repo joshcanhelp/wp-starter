@@ -51,3 +51,19 @@ require_once( 'admin-data-lookup.php' );
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once( 'wp-cli.php' );
 }
+
+/**
+ * Output all non-system meta fields
+ * TODO: Where to add this?
+ */
+function allonsy_output_meta() {
+	foreach ( get_post_meta( get_the_ID() ) as $meta_key => $meta_vals ) {
+		if ( '_' !== $meta_key[0] ) {
+			printf(
+				'<p><strong>%s</strong><br>%s</p>',
+				$meta_key,
+				implode( '<br>', $meta_vals )
+			);
+		}
+	}
+}
